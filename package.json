@@ -1,0 +1,22 @@
+{
+  "name": "WebsiteV4",
+  "version": "4.0.0",
+  "description": "Boilerplate for React and Express",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "cd client && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client", 
+    "dev": "concurrently \" npm run server\" \"npm run client\""
+  },
+  "author": "Hasham Alam",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
