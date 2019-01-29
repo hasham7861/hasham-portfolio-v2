@@ -1,0 +1,15 @@
+.portfolio{
+  margin-top: 100px;
+  line-height: 0.4em;
+}
+
+@keyframes SwipeUp {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 4px, 0); }
+}
+
+.upArrow{
+  animation: SwipeUp 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}

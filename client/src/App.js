@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Heading from './components/Heading/Heading';
 import Contact from './components/Contact/Contact';
+import Portfolio from './components/Portfolio/Portfolio';
 
 class App extends Component {
   constructor(){
@@ -15,7 +16,7 @@ class App extends Component {
       <div className="App">
         <Heading />
         <Contact />
-        {/*<Portfolio />*/}
+        <Portfolio />
       </div>
     );
   }

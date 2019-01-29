@@ -7,5 +7,9 @@
 .heading h1{
   margin: 0;
   line-height: 1.2em;
-  font-size: 3.5rem;
+  font-size: 17vw;
+}
+
+.heading h3{
+  font-size: 5vw;
 }
