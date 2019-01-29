@@ -4,7 +4,7 @@ import './Portfolio.css';
 const Portfolio = (props) => {
   return (
     <div className="portfolio">
-      <h4 className="upArrow">▲</h4>
+      <h2 className="upArrow">▲</h2>
       <h4>Swipe Up To Peek Portfolio</h4>
     </div>
   )};

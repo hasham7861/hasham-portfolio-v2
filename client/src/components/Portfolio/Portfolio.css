@@ -1,11 +1,11 @@
 .portfolio{
   margin-top: 100px;
-  line-height: 0.4em;
+  line-height: 0.7em;
 }
 
 @keyframes SwipeUp {
   from { transform: translate3d(0, 0, 0);     }
-  to   { transform: translate3d(0, 4px, 0); }
+  to   { transform: translate3d(0, 5px, 0); }
 }
 
 .upArrow{

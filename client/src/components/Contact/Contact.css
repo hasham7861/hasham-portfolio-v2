@@ -1,19 +1,9 @@
 .contact{
-  margin-top:80px;
   border-radius: 50px;
   border: 1px solid white;
-  margin-left: 2.3em;
-  margin-right: 2.3em;
+  margin: 7em 5em;
+  margin-bottom: 0;
 }
-
-@keyframes SwipeRight {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(5px, 0, 0); }
-}
-
-.rightArrow{
-  animation: SwipeRight 0.5s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  display: inline;
+.contact h4{
+  margin: 15px 0;
 }
