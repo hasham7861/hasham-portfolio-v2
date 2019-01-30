@@ -9,3 +9,8 @@
 h3,h4{
   font-weight: lighter;
 }
+
+a{
+  color:white;
+  text-decoration: none;
+}

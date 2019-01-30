@@ -1,9 +1,14 @@
-.contact{
+.ContactButton{
   border-radius: 50px;
   border: 1px solid white;
   margin: 7em 5em;
   margin-bottom: 0;
 }
-.contact h4{
+
+h4{
   margin: 15px 0;
+}
+
+Link{
+  color:white;
 }
