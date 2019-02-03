@@ -1,3 +1,44 @@
 .ContactScreen{
   padding-top: 50px;
 }
+
+.ContactScreen h5{
+  /*margin-left: 50%;*/
+  margin-right: 50%;
+  margin-bottom: 50px;
+}
+
+input, textarea, button{
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #A19898;
+  font-family:'Montserrat', sans-serif;
+}
+
+input:focus, textarea:focus, button:hover{
+  background: white;
+  border-radius: 10px;
+}
+
+input::placeholder, textarea::placeholder{
+  color:white;
+}
+
+textarea{
+  height: 15em;
+  resize: none;
+}
+
+button{
+  margin: 30px 20%;
+  padding: 5px;
+  color:white;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin: 5em 15%;
+}
