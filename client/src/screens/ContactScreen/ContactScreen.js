@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ContactScreen.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from '../../App';
-// import axios from 'axios';
+import axios from 'axios';
 
 class ContactScreen extends Component {
 
@@ -15,15 +15,16 @@ class ContactScreen extends Component {
   }
 
 
-  // sendMessage = () => {
-  //
-  //   const endpoint="/messaged";
-  //   axios.post(endpoint)
-  //   .then(response => console.log(response));
-  //
-  // }
+  sendMessage = event => {
 
-  componentDidMount(){
+    event.preventDefault();
+
+    const endPoint = "/messaged";
+
+    axios.post(endPoint,{}).then(res => {
+      // console.log(res);
+      console.log(res.data[0]['Message']);
+    })
 
   }
 
@@ -36,10 +37,10 @@ class ContactScreen extends Component {
               <Link to='/'><h5>◀ Go Back To Home</h5></Link>
               <h1>Contact Me</h1>
 
-              <form action="/messaged" method="post">
+              <form onSubmit={this.sendMessage}>
                 <input type="text" name="email" placeholder="Enter in your email.."/>
                 <textarea name="message" placeholder="Enter in your message.. "></textarea>
-                <button >Send Message</button>
+                <button type="submit">Send Message</button>
               </form>
               <div className="contactBar">
 
