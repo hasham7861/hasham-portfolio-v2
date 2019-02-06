@@ -3,7 +3,6 @@
 }
 
 .ContactScreen h5{
-  /*margin-left: 50%;*/
   margin-right: 50%;
   margin-bottom: 50px;
 }
@@ -20,6 +19,7 @@ input, textarea, button{
 input:focus, textarea:focus, button:hover{
   background: white;
   border-radius: 10px;
+  color:#A19898;
 }
 
 input::placeholder, textarea::placeholder{
@@ -34,7 +34,7 @@ textarea{
 button{
   margin: 30px 20%;
   padding: 5px;
-  color:white;
+  color: white;
 }
 
 form{

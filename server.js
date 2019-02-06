@@ -11,6 +11,11 @@ app.get('/api/customers', (req, res) =>{
     res.json(customers);
 });
 
+app.post('/messaged', (req,res) => {
+  // Once send message makes a post request, mail the message to Owner of Site
+  res.json([{"Message":"Your message was received by Hasham Alam"}]);
+});
+
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
