@@ -1,19 +1,19 @@
-const express = require("express");
-
+const express = require("express"); // Helps Create Middleware easily
+const bodyParser = require("body-parser"); // Helps parse HTTP post request
+const Email = require("./Email");
+// Create an express app
 const app = express();
 
-app.get('/api/customers', (req, res) =>{
-    const customers = [
-        {id:1, firstName: 'John', lastName: 'Doe'},
-        {id:2, firstName: 'Steve', lastName: 'Smith'},
-        {id:3, firstName: 'Mary', lastName: 'Swanson'},
-    ];
-    res.json(customers);
-});
+app.use(bodyParser.json()); // Parse parameters of post requests
 
 app.post('/messaged', (req,res) => {
   // Once send message makes a post request, mail the message to Owner of Site
-  res.json([{"Message":"Your message was received by Hasham Alam"}]);
+    // email not working fix
+    const mail = new Email(req.body.name, req.body.email,req.body.message);
+
+    mail.sendEmail();
+    res.json([{"Message":'message sent'}]);
+
 });
 
 const port = 5000;

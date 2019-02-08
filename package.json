@@ -1,7 +1,7 @@
 {
   "name": "websitev4",
   "version": "4.0.0",
-  "description": "Boilerplate for React and Express",
+  "description": "Hasham's Personal Website version 4",
   "main": "server.js",
   "scripts": {
     "client-install": "cd ./client && npm install",
@@ -13,8 +13,10 @@
   "author": "Hasham Alam",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemailer": "^5.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
