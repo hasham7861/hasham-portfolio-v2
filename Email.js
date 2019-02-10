@@ -2,43 +2,38 @@ const nodemailer = require('nodemailer');
 
 module.exports = class Email {
 
-  constructor(name,email,message){
-    this.name = name;
+  constructor(email,subject,message){
     this.email = email;
+    this.subject = subject;
     this.message = message;
   }
 
   isEmailInfoEmpty () {
-    return this.name === "" && this.email === "" && this.message === "";
+    return this.email === "" && this.subject === "" && this.message === "";
   }
 
   sendEmail ()  {
     console.log(this.email);
     if (this.isEmailInfoEmpty() === false){
-      // Create the transporter with the config for outlook
+      // Create the transporter with the config for gmail smtp server
       const transporter = nodemailer.createTransport({
-        host: "smtp-mail.outlook.com", // hostname
-          secureConnection: false, // TLS requires secureConnection to be false
-          port: 587, // port for secure SMTP
-          tls: {
-             ciphers:'SSLv3'
-          },
-          auth: { /// Todo: create a seprate server with just for this purpose
-              user: 'hasham.alam@hotmail.com',
-              pass: 'Has786!!'
-          }
+        service:'gmail',
+        auth: { /// Todo: create a seprate server with just for this purpose
+            user: 'hashamsmtpserver@gmail.com',
+            pass: 'Hasham1234'
+        }
       });
 
-      const message = "--- Message from your Website --- \n\nRecipient: " + this.name + "\n" + "Email: " + this.email + "\n\nMessage: " + this.message;
+      const message = "--- Message from your SMTP Server --- \n\n" + "ReplyTo: " + this.email + "\n\nMessage: " + this.message;
 
       const mailOptions = {
         to:"hasham.alam@hotmail.com",
         replyTo: this.email,
-        subject: 'Email sent from your Website', // Subject line
+        subject: this.subject, // Subject line
         text: message
       }
 
-      // send mail with defined transport object
+      // Send mail with defined transport object
       transporter.sendMail(mailOptions, function(error, info){
         if(error)
           console.log(error);

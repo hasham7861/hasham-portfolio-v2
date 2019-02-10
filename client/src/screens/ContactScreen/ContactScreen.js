@@ -9,8 +9,8 @@ class ContactScreen extends Component {
   constructor() {
     super();
     this.state = {
-      name:"",
       email:"",
+      subject:"",
       message:""
     };
   }
@@ -20,16 +20,17 @@ class ContactScreen extends Component {
     event.preventDefault();
     const endPoint = "/messaged";
     const emailData = {
-      name:this.state.name,
       email:this.state.email,
+      subject:this.state.subject,
       message:this.state.message
     };
 
-    if(emailData.name!=="" && emailData.email !=="" && emailData.message!==""){
+    if(emailData.email!=="" && emailData.subject !=="" && emailData.message!==""){
       axios.post(endPoint,emailData).then(res => {
-        // console.log(res);
         console.log(res.data[0]['Message']);
       });
+      alert("Email is sent");
+      this.newEmailForm();
     }
     else{
       alert("Email form is not completed");
@@ -37,9 +38,11 @@ class ContactScreen extends Component {
 
   }
 
-  nameOnChange = event => {
+  newEmailForm = () =>{
     this.setState({
-      name:event.target.value,
+      email:"",
+      subject:"",
+      message:""
     });
   }
 
@@ -47,6 +50,12 @@ class ContactScreen extends Component {
       this.setState({
         email:event.target.value,
       });
+  }
+
+  subjectOnChange = event => {
+    this.setState({
+      subject:event.target.value,
+    });
   }
 
   messageOnChange = event => {
@@ -65,8 +74,8 @@ class ContactScreen extends Component {
               <h1>Contact Me</h1>
 
               <form onSubmit={this.sendMessage}>
-                <input onChange={this.nameOnChange} type="text" name="name" placeholder="Enter in your Name.." value={this.state.name}/>
                 <input onChange={this.emailOnChange}  type="text" name="email" placeholder="Enter in your Email.." value={this.state.email}/>
+                <input onChange={this.subjectOnChange} type="text" name="subject" placeholder="Enter in the Subject.." value={this.state.subject}/>
                 <textarea onChange={this.messageOnChange}  name="message" placeholder="Enter in your Message.. " value={this.state.message}></textarea>
                 <button type="submit">Send Message</button>
               </form>
