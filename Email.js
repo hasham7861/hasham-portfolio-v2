@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const smtp = require('./config');
 
 module.exports = class Email {
 
@@ -18,10 +19,7 @@ module.exports = class Email {
       // Create the transporter with the config for gmail smtp server
       const transporter = nodemailer.createTransport({
         service:'gmail',
-        auth: { /// Todo: create a seprate server with just for this purpose
-            user: 'hashamsmtpserver@gmail.com',
-            pass: 'Hasham1234'
-        }
+        auth: smtp.SMTPAuth
       });
 
       const message = "--- Message from your SMTP Server --- \n\n" + "ReplyTo: " + this.email + "\n\nMessage: " + this.message;
