@@ -19,8 +19,7 @@ class App extends Component {
   viewContactPage = () => {
     console.log('This was clicked');
   }
-
-
+  
   render() {
     return (
       <div className="App">

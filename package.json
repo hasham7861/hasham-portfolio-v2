@@ -6,7 +6,7 @@
   "scripts": {
     "client-install": "cd ./client && npm install",
     "start": "node server.js",
-    "server": "nodemon server.js",
+    "server": "nodemon --exec babel-node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -15,10 +15,15 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "nodemailer": "^5.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
   }
 }

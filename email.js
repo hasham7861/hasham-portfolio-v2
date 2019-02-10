@@ -1,7 +1,7 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
-const smtp = require('./config');
 
-module.exports = class Email {
+class email {
 
   constructor(email,subject,message){
     this.email = email;
@@ -13,13 +13,16 @@ module.exports = class Email {
     return this.email === "" && this.subject === "" && this.message === "";
   }
 
-  sendEmail ()  {
+  sendEmail () {
     console.log(this.email);
     if (this.isEmailInfoEmpty() === false){
       // Create the transporter with the config for gmail smtp server
       const transporter = nodemailer.createTransport({
-        service:'gmail',
-        auth: smtp.SMTPAuth
+        service:process.env.SMTPService,
+        auth: {
+          user:process.env.SMTPUser,
+          pass:process.env.SMTPPass
+        }
       });
 
       const message = "--- Message from your SMTP Server --- \n\n" + "ReplyTo: " + this.email + "\n\nMessage: " + this.message;
@@ -41,3 +44,5 @@ module.exports = class Email {
     }
   }
 }
+
+export default email;
