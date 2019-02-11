@@ -37,8 +37,27 @@ button{
   color: white;
 }
 
+button:hover{
+  color:black;
+}
+
+@keyframes ButtonPress {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 3px, 0); }
+}
+
+button:active{
+    animation: ButtonPress 0.5s;
+    box-shadow: 5px 5px;
+}
+
+
 form{
   display: flex;
   flex-direction: column;
   margin: 5em 15%;
+}
+
+a:hover{
+  text-decoration: underline;
 }

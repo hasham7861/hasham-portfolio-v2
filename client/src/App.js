@@ -16,20 +16,23 @@ class App extends Component {
     };
   }
 
-  viewContactPage = () => {
-    console.log('This was clicked');
-  }
-  
+
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <Route exact path="/" render={props => <div>
-              <Heading/>
-              <Link to='/contact'><ContactButton/></Link>
-              <Portfolio/>
-            </div>}/>
+            <Route exact path="/" render={props =>
+              <div>
+                <Heading/>
+                <div>
+                  <Link className="Contact" to="/contact">
+                    <ContactButton/>
+                  </Link>
+                </div>
+                <Portfolio/>
+              </div>}
+            />
             <Route path='/contact' component={ContactScreen}/>
             {/* <Route path='/portfolio' component={PortfolioScreen}/> */}
           </div>

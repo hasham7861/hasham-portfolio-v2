@@ -4,7 +4,9 @@
   color:white;
   text-align: center;
   height: 100vh;
+  user-select: none;
 }
+
 
 h3,h4,h5{
   font-weight: lighter;
@@ -13,4 +15,20 @@ h3,h4,h5{
 a{
   color:white;
   text-decoration: none;
+}
+.Contact{
+  display: block;
+  margin: 5em;
+}
+
+.Contact:hover{
+  color:black;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

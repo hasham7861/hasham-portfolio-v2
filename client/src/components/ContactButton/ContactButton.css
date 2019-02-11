@@ -1,14 +1,26 @@
+
 .ContactButton{
   border-radius: 50px;
   border: 1px solid white;
-  margin: 7em 5em;
-  margin-bottom: 0;
+
+}
+
+.ContactButton:hover{
+  background-color: white;
+  /* color:black; */
+}
+
+@keyframes ButtonPress {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 3px, 0); }
+}
+
+.ContactButton:active{
+    animation: ButtonPress 0.5s;
+    box-shadow: 5px 5px;
 }
 
 h4{
-  margin: 15px 0;
-}
-
-Link{
-  color:white;
+  margin: 0;
+  padding: 13px 0;
 }
