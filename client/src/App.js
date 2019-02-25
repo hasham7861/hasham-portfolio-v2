@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import './App.css';
 import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './components/Portfolio/Portfolio';
-import ContactScreen from './screens/ContactScreen/ContactScreen';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ContactScreen from './containers/ContactScreen/ContactScreen';
+
 
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      portfolio: ['close', 'peek', 'expand']
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     portfolio: ['close', 'peek', 'expand']
+  //   };
+  // }
 
 
   render() {
@@ -42,5 +44,4 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+export default connect()(App);

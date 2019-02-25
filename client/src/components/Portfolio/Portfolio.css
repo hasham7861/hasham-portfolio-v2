@@ -1,14 +1,15 @@
 .portfolio{
-  margin-top: 100px;
-  line-height: 0.7em;
-  cursor: grab;
+  /* margin-top: 100px;
+  line-height: 0.2em;
+  cursor: grab; */
 }
 
 .portfolio:checked {
   cursor: grabbing;
 }
 
-@keyframes SwipeUp {
+/* Animation for arrow */
+/* @keyframes SwipeUp {
   from { transform: translate3d(0, 0, 0);     }
   to   { transform: translate3d(0, 5px, 0); }
 }
@@ -17,7 +18,7 @@
   animation: SwipeUp 0.5s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
-}
+} */
 
 /* h4:hover{
   color: white;

@@ -1,5 +1,5 @@
 .ContactScreen{
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .ContactScreen h5{
@@ -32,7 +32,7 @@ textarea{
 }
 
 button{
-  margin: 30px 20%;
+  margin: 15px 20%;
   padding: 5px;
   color: white;
 }
@@ -55,7 +55,8 @@ button:active{
 form{
   display: flex;
   flex-direction: column;
-  margin: 5em 15%;
+  margin: 3.5em 15%;
+  margin-bottom: 0;
 }
 
 a:hover{

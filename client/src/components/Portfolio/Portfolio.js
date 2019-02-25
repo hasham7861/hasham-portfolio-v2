@@ -1,13 +1,24 @@
 import React from 'react';
-import './Portfolio.css';
+// import './Portfolio.css';
 
+const portfolioHeader = React.createRef();
+const portfolioHeaderStyle = {
+  marginTop: '100px',
+  lineHeight: '0.2em',
+  cursor: 'grab'
+};
 // The following touch events only work with touch devices
 const handleTouchStart = (touchStartEvent) => {
   console.log("Touch Start on peek portfolio");
 }
 
 const handleTouchMove = (touchMoveEvent) => {
+  const portfolioHeaderOffsetY=touchMoveEvent.changedTouches[0].clientY;
+  portfolioHeaderStyle.marginTop = portfolioHeaderOffsetY;
   console.log("Touch Move on peek portfolio");
+
+  // console.log(touchMoveEvent.changedTouches[0].clientY);
+  // console.log(portfolioHeader.current);
 }
 
 const handleTouchEnd = () => {
@@ -16,7 +27,7 @@ const handleTouchEnd = () => {
 
 const Portfolio = (props) => {
   return (
-    <div className="portfolio"
+    <div ref={portfolioHeader} className="portfolio" style={portfolioHeaderStyle}
       onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
       onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)}
       onTouchEnd={()=>handleTouchEnd()}>
