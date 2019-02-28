@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import emailMessage from './emailMessage';
-import portfolio from './portfolio';
+import portfolioMove from './portfolio';
 
 export default combineReducers({
-  portfolio,
+  portfolioMove,
   emailMessage,
 });

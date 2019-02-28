@@ -1,22 +1,32 @@
-import {	PORTFOLIO_PEEK, PORTFOLIO_EXPAND, PORTFOLIO_CLOSE} from'../constants/actionTypes';
+import {	CHANGE_PORTFOLIO_STATE } from'../constants/actionTypes';
 
 /*Intial States*/
-const portfolioDivOffset = 500;
-
+const intialPortfolioState = {
+  headerStyle: {
+    marginTop: '100px',
+    lineHeight: '0.2em',
+    cursor: 'grab',
+    position: 'relative',
+    bottom: '0'
+  },
+  headerState: "Close"
+}
 
 /*Creating Reducers*/
-const portfolio = (state = portfolioDivOffset, action) => {
+const portfolioMove = (state = intialPortfolioState, action) => {
  	switch(action.type){
-		case PORTFOLIO_PEEK:
+		case CHANGE_PORTFOLIO_STATE:
       // Update the dive to peek a little
-			return state - action.portfolioOffsetValue;
-		case PORTFOLIO_EXPAND:
-			return state - action.portfolioOffsetValue;
-		case PORTFOLIO_CLOSE:
-			return portfolioDivOffset;
+			return Object.assign({}, state, {
+        headerStyle:{
+          ...intialPortfolioState.headerStyle,
+          bottom: action.portfolioState.bottom,
+        },
+        headerState: action.portfolioState.headerState
+      })
 		default:
 			return state
 	}
 };
 
-export default portfolio;
+export default portfolioMove;

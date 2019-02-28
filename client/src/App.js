@@ -4,20 +4,18 @@ import { connect } from "react-redux";
 import './App.css';
 import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
-import Portfolio from './components/Portfolio/Portfolio';
+import Portfolio from './containers/Portfolio/Portfolio';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
-
 
 
 class App extends Component {
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     portfolio: ['close', 'peek', 'expand']
-  //   };
-  // }
-
+  constructor() {
+    super();
+    this.state = {
+      // portfolio: ['close', 'peek', 'expand']
+    };
+  }
 
   render() {
     return (
@@ -27,14 +25,12 @@ class App extends Component {
             <Route exact path="/" render={props =>
               <div>
                 <Heading/>
-                <div>
                   <Link className="Contact" to="/contact">
                     <ContactButton/>
                   </Link>
-                </div>
                 <Portfolio/>
-              </div>}
-            />
+              </div>
+            }/>
             <Route path='/contact' component={ContactScreen}/>
             {/* <Route path='/portfolio' component={PortfolioScreen}/> */}
           </div>
