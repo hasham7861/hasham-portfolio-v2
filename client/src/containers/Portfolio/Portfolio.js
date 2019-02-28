@@ -45,6 +45,7 @@ class Portfolio extends Component {
 
   handleTouchEnd = () => {
     console.log("Touch End on peek portfolio");
+      this.props.portfolioMove({bottom:0});
   }
 
   componentDidMount() {
