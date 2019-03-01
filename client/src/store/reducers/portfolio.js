@@ -20,7 +20,7 @@ const portfolioMove = (state = intialPortfolioState, action) => {
 			return Object.assign({}, state, {
         headerStyle:{
           ...intialPortfolioState.headerStyle,
-          bottom: action.portfolioState.bottom,
+          bottom: action.portfolioState.headerStyle.bottom,
         },
         headerState: action.portfolioState.headerState
       })

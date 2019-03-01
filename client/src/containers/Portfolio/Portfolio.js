@@ -5,8 +5,9 @@ import {  changePortfolioState } from "../../store/actions/actions";
 class Portfolio extends Component {
 
   portfolioHeader = React.createRef();
+  HeaderMoveDistance = 0;
+  HeaderMaxMoveDistance = 70;
   // need to keep the state of styles in redux too inorder to update the bottom value
-  portfolioHeaderStyle = {};
 
   // The following touch events only work with TOUCH BASED DEVICES
   handleTouchStart = (touchStartEvent) => {
@@ -21,31 +22,55 @@ class Portfolio extends Component {
     // then change the top property for portfolioHeader based on touchMoveEvent
     console.log(portfolioHeaderDefaultOffset);
   }
+
   handleTouchMove = (touchMoveEvent) => {
     // let portfolioHeaderOffsetY=touchMoveEvent.changedTouches[0].clientY;
     console.log("Touch Move on peek portfolio");
     let portfolioHeaderDefaultOffset = this.portfolioHeader.current.offsetTop; // default header position
     let portfolioHeaderTouchMoveY = touchMoveEvent.changedTouches[0].clientY; // touch moving position
-    let HeaderMoveDistance = portfolioHeaderDefaultOffset - portfolioHeaderTouchMoveY // distance between default and touch value;
+    this.HeaderMoveDistance = portfolioHeaderDefaultOffset - portfolioHeaderTouchMoveY // distance between default and touch value;
 
     // this.props.portfolioMove(portfolioHeaderDefaultOffset - touchMoveEvent.changedTouches[0].clientY); // update the touches
     // console.log(this.props.portfolioDivOffset);
+    // New portfoilio state for redux store
     let newPortfolioMoveState = {
-      bottom: HeaderMoveDistance + "px"
+      headerStyle:{
+          bottom: this.HeaderMoveDistance + "px"
+      },
+      headerState: 'Close'
     }
-    if(HeaderMoveDistance <= 70 && HeaderMoveDistance >= 0){
+    console.log(this.props.headerState);
+
+    // Change the state, only if the header is within this range of y value
+    if(this.HeaderMoveDistance <= this.HeaderMaxMoveDistance && this.HeaderMoveDistance >= 0
+      && this.props.headerState !== 'Expand'){
+        // Once I have reached the maxoffset, set the portfolio to leave as expanded
+        if(this.HeaderMoveDistance === this.HeaderMaxMoveDistance){
+          newPortfolioMoveState.headerState = 'Expand';
+        }
 
         this.props.portfolioMove(newPortfolioMoveState);
+
     }
 
 
-    console.log(HeaderMoveDistance); // grabs the y touches
+    console.log(this.HeaderMoveDistance); // grabs the y touches
     // console.log(portfolioHeader.current);
   }
 
   handleTouchEnd = () => {
     console.log("Touch End on peek portfolio");
-      this.props.portfolioMove({bottom:0});
+
+    //Checks if the header hit the offset
+    if(this.props.headerState === 'Close'){
+      this.props.portfolioMove(
+        {
+          headerStyle:{
+            bottom:0 +"px"
+          }
+        }
+      );
+    }
   }
 
   componentDidMount() {
