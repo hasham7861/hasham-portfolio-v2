@@ -13,3 +13,18 @@
 .heading h3{
   font-size: 5vw;
 }
+
+
+@media only screen and (min-width: 770px) {
+  .heading{
+    padding-top: 100px;
+
+  }
+  .heading h1{
+    font-size: 10vw;
+    line-height:  1em;
+  }
+  .heading h3{
+    font-size: 3vw;
+  }
+}

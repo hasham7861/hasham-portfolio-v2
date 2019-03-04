@@ -2,7 +2,6 @@ import email from "./email";
 
 const express = require("express"); // Helps Create Middleware easily
 const bodyParser = require("body-parser"); // Helps parse HTTP post request
-// const email = require("./email");
 // Create an express app
 const app = express();
 

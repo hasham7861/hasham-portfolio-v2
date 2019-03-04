@@ -9,14 +9,10 @@ import ContactScreen from './containers/ContactScreen/ContactScreen';
 
 
 class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      // portfolio: ['close', 'peek', 'expand']
-    };
+  constructor(props){
+  	super(props);
+  	this.state = {};
   }
-
   render() {
     return (
       <div className="App">
