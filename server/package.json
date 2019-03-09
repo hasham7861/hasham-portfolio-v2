@@ -4,10 +4,10 @@
   "description": "Hasham's Personal Website version 4",
   "main": "server.js",
   "scripts": {
-    "client-install": "cd ./client && npm install",
+    "client-install": "cd ../client && npm install",
     "start": "node server.js",
     "server": "nodemon --exec babel-node server.js",
-    "client": "npm start --prefix client",
+    "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Hasham Alam",

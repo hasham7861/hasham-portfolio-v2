@@ -4,6 +4,7 @@ import {
 	SAVE_MESSAGE,
 	CLEAR_EMAIL_FORM,
 	CHANGE_PORTFOLIO_STATE,
+	CHANGE_HEADING_SIZE,
 }	from '../constants/actionTypes';
 
 // The following actions are possible on emailMessage
@@ -25,4 +26,9 @@ export const clearEmailForm = () =>({
 export const changePortfolioState = portfolioState => ({
 	type: CHANGE_PORTFOLIO_STATE,
 	portfolioState
+});
+
+export const changeHeadingSize = headingState => ({
+	type: CHANGE_HEADING_SIZE,
+	headingState
 });

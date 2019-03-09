@@ -6,12 +6,16 @@ import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './containers/Portfolio/Portfolio';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
+// import { changeHeadingSize }from "./store/actions/actions"
 
 
 class App extends Component {
   constructor(props){
   	super(props);
   	this.state = {};
+  }
+  componentDidMount() {
+    console.log("Heading Style = "+this.props.headerStyle);
   }
   render() {
     return (
@@ -36,4 +40,16 @@ class App extends Component {
     );
   }
 }
-export default connect()(App);
+
+const mapStateToProps = state => {
+  return{
+    headerStyle: state.headerStateChange
+  }
+}
+// const mapDispatchToProps = dispatch => {
+// }
+
+export default connect(
+  mapStateToProps,
+  // mapDispatchToProps
+)(App);
