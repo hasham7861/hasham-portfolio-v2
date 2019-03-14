@@ -1,108 +1,103 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {  changePortfolioState } from "../../store/actions/actions";
+import {  changePortfolioState, changeHeadingSize } from "../../store/actions/actions";
 
 class Portfolio extends Component {
 
-  portfolioHeader = React.createRef();
-  HeaderMoveDistance = 0;
-  HeaderMaxMoveDistance = 70;
-  // need to keep the state of styles in redux too inorder to update the bottom value
 
+  portfolioHeader = React.createRef();
+  portfolioHeaderMoveDistance = 0;
+  portfolioHeaderMaxMoveDistance = 1;
   // The following touch events only work with TOUCH BASED DEVICES
   handleTouchStart = (touchStartEvent) => {
-    // let portfolioHeaderOffsetY=touchStartEvent.changedTouches[0].clientY;
-    console.log("Touch Start on peek portfolio");
-    // portfolioHeaderStyle.marginTop = portfolioHeaderOffsetY;
-    // console.log(touchStartEvent.changedTouches[0].clientY);
-
-    //Set the intial state of portfolio header to following
-    let portfolioHeaderDefaultOffset = this.portfolioHeader.current.offsetTop;
-
-    // then change the top property for portfolioHeader based on touchMoveEvent
-    console.log(portfolioHeaderDefaultOffset);
+    this.portfolioHeaderMaxMoveDistance = Math.floor((this.portfolioHeader.current.offsetTop - this.props.contactButtonRef.current.offsetTop) /3)  ;
   }
+  handleTouchEnd = () => {}
 
   handleTouchMove = (touchMoveEvent) => {
-    // let portfolioHeaderOffsetY=touchMoveEvent.changedTouches[0].clientY;
-    console.log("Touch Move on peek portfolio");
-    let portfolioHeaderDefaultOffset = this.portfolioHeader.current.offsetTop; // default header position
-    let portfolioHeaderTouchMoveY = touchMoveEvent.changedTouches[0].clientY; // touch moving position
-    this.HeaderMoveDistance = portfolioHeaderDefaultOffset - portfolioHeaderTouchMoveY // distance between default and touch value;
 
-    // this.props.portfolioMove(portfolioHeaderDefaultOffset - touchMoveEvent.changedTouches[0].clientY); // update the touches
-    // console.log(this.props.portfolioDivOffset);
-    // New portfoilio state for redux store
-    let newPortfolioMoveState = {
-      headerStyle:{
-          bottom: this.HeaderMoveDistance + "px"
-      },
-      headerState: 'Close'
-    }
-    console.log(this.props.headerState);
+
+
+
+    console.log("---/Debug/---");
+    // console.log("HeaderOffset: "+this.props.headingRef.current.offsetTop);
+    // console.log("ContactButtonOffset: "+this.props.contactButtonRef.current.offsetTop);
+    // console.log("PortfolioTextOffset: "+this.portfolioHeader.current.offsetTop);
+    console.log("portfolioHeaderMoveDistance: " + this.portfolioHeaderMoveDistance);
+    console.log("portfolioHeaderMaxMoveDistance: "+ this.portfolioHeaderMaxMoveDistance);
+    console.log("PortfolioHeaderState: " + this.props.portfolioHeaderState);
+
+
+
+
+    // Updating UI for MainHeader on swipe up
+    // let headingRef = {...this.props.headingRef};
+    // let headerMoveDistance = headingRef.current.clientHeight - portfolioHeaderTouchMoveY;
+    // console.log("offset: " + portfolioHeaderDefaultOffset + " ref: " + headingRef.current.clientHeight);
+    // console.log("moveDistance: ", this.portfolioHeaderMoveDistance +  " maxDistance: " + portfolioHeaderMaxMoveDistance);
+    // console.log();
+
+
+    // New headerstate for redux store
+    // let headerState =  {
+    //    headerStyle:{
+    //      paddingBottom: 0 + 'px',
+    //      paddingTop: - headerMoveDistance + 'px',
+    //    }, headerState:'BIG'
+    //  }
 
     // Change the state, only if the header is within this range of y value
-    if(this.HeaderMoveDistance <= this.HeaderMaxMoveDistance && this.HeaderMoveDistance >= 0
-      && this.props.headerState !== 'Expand'){
+    if(this.portfolioHeaderMoveDistance <= this.portfolioHeaderMaxMoveDistance &&
+      this.portfolioHeaderMoveDistance >= 0
+      && this.props.portfolioHeaderState !== 'Expand' && this.portfolioHeader.current.offsetTop >= touchMoveEvent.changedTouches[0].clientY){
+
+        // SwipeUpToExpandPortfolio Text dyanmic default header position
+        this.portfolioHeaderMoveDistance =  Math.floor(this.portfolioHeader.current.offsetTop - touchMoveEvent.changedTouches[0].clientY);
+
+        // New portfoilio state for redux store
+        let newPortfolioMoveState = {
+          portfolioHeaderStyle:{
+              bottom: this.portfolioHeaderMoveDistance + "px"
+          },
+          portfolioHeaderState: 'Close'
+        }
+
         // Once I have reached the maxoffset, set the portfolio to leave as expanded
-        if(this.HeaderMoveDistance === this.HeaderMaxMoveDistance){
-          newPortfolioMoveState.headerState = 'Expand';
+        if(this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance){
+          newPortfolioMoveState.portfolioHeaderState = 'Expand';
         }
-
-        this.props.portfolioMove(newPortfolioMoveState);
-
+         this.props.portfolioMove(newPortfolioMoveState);
+         // something wrong with headerStateChange
+         // this.props.headerStateChange(headerState);
     }
-
-
-    console.log(this.HeaderMoveDistance); // grabs the y touches
-    // console.log(portfolioHeader.current);
-  }
-
-  handleTouchEnd = () => {
-    console.log("Touch End on peek portfolio");
-
-    //Checks if the header hit the offset
-    if(this.props.headerState === 'Close'){
-      this.props.portfolioMove(
-        {
-          headerStyle:{
-            bottom:0 +"px"
-          }
-        }
-      );
-    }
-  }
-
-  componentDidMount() {
-    // this.portfolioHeaderStyle = this.props.portfolioState;
-    // console.log(this.props.headerStyle);
   }
 
   render() {
-
-
     return (
-    <div ref={this.portfolioHeader} className="portfolio" style={this.props.headerStyle}
+    <div ref={this.portfolioHeader} className="portfolio" style={this.props.portfolioHeaderStyle}
       onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
       onTouchMove={touchMoveEvent => this.handleTouchMove(touchMoveEvent)}
       onTouchEnd={()=>this.handleTouchEnd()}>
       <h2 className="upArrow">▲</h2>
-      <h4>Swipe Up To Peek Portfolio</h4>
+      <h4>Swipe Up To Expand Portfolio</h4>
     </div>
-  );
+    );
   }
 }
 
 const mapStateToProps = state => {
   return{
-    headerStyle: state.portfolioMove.headerStyle,
-    headerState: state.portfolioMove.headerState
+    portfolioHeaderStyle: state.portfolioMove.portfolioHeaderStyle,
+    portfolioHeaderState: state.portfolioMove.portfolioHeaderState,
+    headerStyle: state.headerStateChange.headerStyle,
+    headerState: state.headerStateChange.headerState
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return{
-    portfolioMove: (newHeaderState) => dispatch(changePortfolioState(newHeaderState))
+    portfolioMove: (newHeaderState) => dispatch(changePortfolioState(newHeaderState)),
+    headerStateChange: (newHeaderState) => dispatch(changeHeadingSize(newHeaderState))
   };
 }
 

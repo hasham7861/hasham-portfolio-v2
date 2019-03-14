@@ -10,13 +10,10 @@ import ContactScreen from './containers/ContactScreen/ContactScreen';
 
 
 class App extends Component {
-  constructor(props){
-  	super(props);
-  	this.state = {};
-  }
-  componentDidMount() {
-    console.log("Heading Style = "+this.props.headerStyle);
-  }
+
+  headingRef = React.createRef();
+  contactButtonRef = React.createRef();
+
   render() {
     return (
       <div className="App">
@@ -24,11 +21,16 @@ class App extends Component {
           <div>
             <Route exact path="/" render={props =>
               <div>
-                <Heading/>
-                  <Link className="Contact" to="/contact">
-                    <ContactButton/>
-                  </Link>
-                <Portfolio/>
+                <div style={this.props.headerStyle}>
+                  <div ref={this.headingRef}><Heading/></div>
+                  <div ref={this.contactButtonRef}>
+                    <Link className="Contact" to="/contact">
+                      <ContactButton/>
+                    </Link>
+                  </div>
+                </div>
+
+                <Portfolio headingRef={this.headingRef} contactButtonRef={this.contactButtonRef}/>
               </div>
             }/>
             <Route path='/contact' component={ContactScreen}/>
@@ -43,13 +45,11 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return{
-    headerStyle: state.headerStateChange
+    headerStyle: state.headerStateChange.headerStyle
   }
 }
-// const mapDispatchToProps = dispatch => {
-// }
+
 
 export default connect(
-  mapStateToProps,
-  // mapDispatchToProps
+  mapStateToProps
 )(App);

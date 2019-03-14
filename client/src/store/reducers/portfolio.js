@@ -2,14 +2,13 @@ import {	CHANGE_PORTFOLIO_STATE } from'../constants/actionTypes';
 
 /*Intial States*/
 const intialPortfolioState = {
-  headerStyle: {
-    marginTop: '100px',
+  portfolioHeaderStyle: {
     lineHeight: '0.2em',
     cursor: 'grab',
     position: 'relative',
     bottom: '0'
   },
-  headerState: "Close"
+  portfolioHeaderState: "Close"
 }
 
 /*Creating Reducers*/
@@ -18,11 +17,12 @@ const portfolioMove = (state = intialPortfolioState, action) => {
 		case CHANGE_PORTFOLIO_STATE:
       // Update the dive to peek a little
 			return Object.assign({}, state, {
-        headerStyle:{
-          ...intialPortfolioState.headerStyle,
-          bottom: action.portfolioState.headerStyle.bottom,
+        portfolioHeaderStyle:{
+          ...intialPortfolioState.portfolioHeaderStyle,
+          bottom: action.portfolioState.portfolioHeaderStyle.bottom,
+          backgroundColor: 'coral'
         },
-        headerState: action.portfolioState.headerState
+        portfolioHeaderState: action.portfolioState.portfolioHeaderState
       })
 		default:
 			return state

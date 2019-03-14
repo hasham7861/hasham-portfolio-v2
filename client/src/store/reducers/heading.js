@@ -1,8 +1,9 @@
-import {CHANGE_HEADING_SIZE} from '../constants/actionTypes'
+import { CHANGE_HEADING_SIZE } from '../constants/actionTypes'
 
 const intialHeadingState = {
   headerStyle: {
-    bottom: '0px'
+    paddingBottom: '0px',
+    paddingTop: '100px'
   },
   headerState:'BIG'
 }
@@ -12,7 +13,8 @@ const headerStateChange = (state = intialHeadingState, action) => {
         return Object.assign({}, state, {
             headerStyle: {
               //  Changing size of header when swiping up
-              bottom: action.headerState.headerStyle.bottom,
+              paddingBottom: action.headingState.headerStyle.paddingBottom,
+              paddingTop: action.headingState.headerStyle.paddingTop,
             },
             headerState: action.headingState.headerState
           })
