@@ -56,7 +56,9 @@ class Portfolio extends Component {
               bottom: this.portfolioHeaderMoveDistance + "px"
           },
           portfolioHeaderState: 'Close',
-          contactButtonStyleClasses: 'Contact'
+          contactButtonStyleClasses: 'Contact',
+          swipeArrow: '▲',
+          swipeText: 'Swipe Up To Expand Portfolio'
         }
 
         // New Heading state for redux store
@@ -75,6 +77,8 @@ class Portfolio extends Component {
           console.log(newPortfolioMoveState.contactButtonStyleClasses);
           this.props.headerStateChange(newHeaderState);
           newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton';
+          newPortfolioMoveState.swipeArrow = "▼";
+          newPortfolioMoveState.swipeText = 'Swipe Down To Collapse Portfolio'
            // console.log(newPortfolioMoveState.classNames);
           // change the css for heading headingRef
           // console.log(this.props.headingRef);
@@ -92,8 +96,8 @@ class Portfolio extends Component {
       onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
       onTouchMove={touchMoveEvent => this.handleTouchMove(touchMoveEvent)}
       onTouchEnd={()=>this.handleTouchEnd()}>
-      <h2 className="upArrow">▲</h2>
-      <h4>Swipe Up To Expand Portfolio</h4>
+      <h2 className="upArrow">{this.props.swipeArrow}</h2>
+      <h4>{this.props.swipeText}</h4>
     </div>
     );
   }
@@ -104,7 +108,9 @@ const mapStateToProps = state => {
     portfolioHeaderStyle: state.portfolioMove.portfolioHeaderStyle,
     portfolioHeaderState: state.portfolioMove.portfolioHeaderState,
     headerStyle: state.headerStateChange.headerStyle,
-    headerState: state.headerStateChange.headerState
+    headerState: state.headerStateChange.headerState,
+    swipeArrow: state.portfolioMove.swipeArrow,
+    swipeText: state.portfolioMove.swipeText
   };
 }
 
