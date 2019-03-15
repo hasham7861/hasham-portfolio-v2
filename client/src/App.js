@@ -6,6 +6,7 @@ import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './containers/Portfolio/Portfolio';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
+import './components/Heading/Heading.css';
 // import { changeHeadingSize }from "./store/actions/actions"
 
 
@@ -21,14 +22,12 @@ class App extends Component {
           <div>
             <Route exact path="/" render={props =>
               <div>
-                <div style={this.props.headerStyle}>
-                  <div ref={this.headingRef}><Heading/></div>
+                  <div style={this.props.headerStyle} ref={this.headingRef}><Heading classNames={this.props.headerClassNames}/></div>
                   <div ref={this.contactButtonRef}>
-                    <Link className="Contact" to="/contact">
+                    <Link className={this.props.contactButtonStyleClasses} to="/contact">
                       <ContactButton/>
                     </Link>
                   </div>
-                </div>
 
                 <Portfolio headingRef={this.headingRef} contactButtonRef={this.contactButtonRef}/>
               </div>
@@ -45,7 +44,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return{
-    headerStyle: state.headerStateChange.headerStyle
+    headerStyle: state.headerStateChange.headerStyle,
+    headerClassNames: state.headerStateChange.classNames,
+    contactButtonStyleClasses: state.portfolioMove.contactButtonStyleClasses
   }
 }
 

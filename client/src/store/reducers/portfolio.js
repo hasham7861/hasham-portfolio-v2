@@ -8,7 +8,8 @@ const intialPortfolioState = {
     position: 'relative',
     bottom: '0'
   },
-  portfolioHeaderState: "Close"
+  portfolioHeaderState: "Close",
+  contactButtonStyleClasses: "Contact"
 }
 
 /*Creating Reducers*/
@@ -22,7 +23,8 @@ const portfolioMove = (state = intialPortfolioState, action) => {
           bottom: action.portfolioState.portfolioHeaderStyle.bottom,
           backgroundColor: 'coral'
         },
-        portfolioHeaderState: action.portfolioState.portfolioHeaderState
+        portfolioHeaderState: action.portfolioState.portfolioHeaderState,
+        contactButtonStyleClasses: action.portfolioState.contactButtonStyleClasses
       })
 		default:
 			return state

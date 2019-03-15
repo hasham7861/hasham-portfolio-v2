@@ -16,13 +16,25 @@ a{
   color:white;
   text-decoration: none;
 }
+
+/*The following css is for the link container for contact button*/
 .Contact{
   display: block;
   margin: 5em;
 }
-
 .Contact:hover{
   color:black;
+}
+/* The following is link container for contact button after expand portfolio*/
+.expandPortfolioContactButton{
+  /* margin-top: 15px; */
+  margin: 0;
+  margin-bottom: 4em;
+  margin-top: 2em;
+}
+.expandPortfolioContactButton .ContactButton h4{
+  padding: 5px 50px;
+  font-size: 1em;
 }
 
 

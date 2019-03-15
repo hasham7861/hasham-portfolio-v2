@@ -1,9 +1,7 @@
 .heading{
   color:white;
   text-transform: uppercase;
-  /* padding-top: 150px; */
   text-align: center;
-  /* position: relative; */
 }
 .heading h1{
   margin: 0;
@@ -14,7 +12,17 @@
 .heading h3{
   font-size: 5vw;
 }
-
+.expandPortfolio{
+    padding-top: 10px;
+}
+.expandPortfolio h1{
+  font-size: 11vw;
+  display: inline;
+  margin: 0 5px;
+}
+.expandPortfolio h3{
+  font-size: 3.8vw;
+}
 
 @media only screen and (min-width: 770px) {
   .heading{

@@ -3,7 +3,6 @@
   border-radius: 50px;
   border: 1px solid white;
   display: inline-block;
-
 }
 
 .ContactButton:hover{
@@ -20,7 +19,7 @@
     box-shadow: 5px 5px;
 }
 
-h4{
+.ContactButton h4{
   margin: 0;
   padding: 13px 50px;
 }
