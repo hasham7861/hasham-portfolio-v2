@@ -5,8 +5,10 @@ const intialPortfolioState = {
   portfolioHeaderStyle: {
     lineHeight: '0.2em',
     cursor: 'grab',
-    position: 'relative',
-    bottom: '0'
+    position: 'absolute',
+    bottom: '2em',
+    left:'0',
+    right:'0'
   },
   portfolioHeaderState: "Close",
   contactButtonStyleClasses: "Contact",
@@ -23,7 +25,7 @@ const portfolioMove = (state = intialPortfolioState, action) => {
         portfolioHeaderStyle:{
           ...intialPortfolioState.portfolioHeaderStyle,
           bottom: action.portfolioState.portfolioHeaderStyle.bottom,
-          // backgroundColor: 'coral'
+          position:action.portfolioState.portfolioHeaderStyle.position
         },
         portfolioHeaderState: action.portfolioState.portfolioHeaderState,
         contactButtonStyleClasses: action.portfolioState.contactButtonStyleClasses,

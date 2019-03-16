@@ -11,14 +11,11 @@ class Portfolio extends Component {
   // The following touch events only work with TOUCH BASED DEVICES
   handleTouchStart = (touchStartEvent) => {
     // Only declare the distance once on start from expand portfolio text to contact button
-    this.portfolioHeaderMaxMoveDistance = Math.floor((this.portfolioHeader.current.offsetTop - this.props.contactButtonRef.current.offsetTop) /3);
+    this.portfolioHeaderMaxMoveDistance = Math.floor((this.portfolioHeader.current.offsetTop - this.props.contactButtonRef.current.offsetTop)/2);
   }
   handleTouchEnd = () => {}
 
   handleTouchMove = (touchMoveEvent) => {
-
-
-
 
     console.log("---/Debug/---");
     // console.log(this.props.headingRef.current.children[0].childNodes);
@@ -28,17 +25,6 @@ class Portfolio extends Component {
     // console.log("portfolioHeaderMoveDistance: " + this.portfolioHeaderMoveDistance);
     // console.log("portfolioHeaderMaxMoveDistance: "+ this.portfolioHeaderMaxMoveDistance);
     // console.log("PortfolioHeaderState: " + this.props.portfolioHeaderState);
-
-
-
-
-    // Updating UI for MainHeader on swipe up
-    // let headingRef = {...this.props.headingRef};
-    // let headerMoveDistance = headingRef.current.clientHeight - portfolioHeaderTouchMoveY;
-    // console.log("offset: " + portfolioHeaderDefaultOffset + " ref: " + headingRef.current.clientHeight);
-    // console.log("moveDistance: ", this.portfolioHeaderMoveDistance +  " maxDistance: " + portfolioHeaderMaxMoveDistance);
-    // console.log();
-
 
 
     // Change the state, only if the header is within this range of y value
@@ -53,7 +39,8 @@ class Portfolio extends Component {
         // New portfoilioText state for redux store
         let newPortfolioMoveState = {
           portfolioHeaderStyle:{
-              bottom: this.portfolioHeaderMoveDistance + "px"
+              bottom: this.portfolioHeaderMoveDistance + "px",
+              position: 'absolute'
           },
           portfolioHeaderState: 'Close',
           contactButtonStyleClasses: 'Contact',
@@ -70,23 +57,26 @@ class Portfolio extends Component {
 
         // Once I have reached the maxoffset, set the portfolio to leave as expanded
         if(this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance){
-          newPortfolioMoveState.portfolioHeaderState = 'Expand';
-          // something wrong with headerStateChange
+
+          // Update the heading state once portfolio expands
           newHeaderState.classNames += ' expandPortfolio';
-          // newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton';
-          console.log(newPortfolioMoveState.contactButtonStyleClasses);
           this.props.headerStateChange(newHeaderState);
-          newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton';
-          newPortfolioMoveState.swipeArrow = "▼";
-          newPortfolioMoveState.swipeText = 'Swipe Down To Collapse Portfolio'
-           // console.log(newPortfolioMoveState.classNames);
-          // change the css for heading headingRef
-          // console.log(this.props.headingRef);
-            // newPortfolioMoveState.classNames += ' expandPortfolio';
+
+          // Updated State once the portfolio expands
+          newPortfolioMoveState = {
+            portfolioHeaderStyle:{
+              ...newPortfolioMoveState.portfolioHeaderStyle,
+              position:'relative',
+              bottom: 0
+            },
+              portfolioHeaderState: 'Expand',
+              contactButtonStyleClasses: newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton',
+              swipeArrow: "▼",
+              swipeText: 'Swipe Down To Collapse Portfolio'
+            }
 
         }
          this.props.portfolioMove(newPortfolioMoveState);
-
     }
   }
 
