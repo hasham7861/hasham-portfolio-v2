@@ -1,4 +1,4 @@
-import {	CHANGE_PORTFOLIO_STATE } from'../constants/actionTypes';
+import {	CHANGE_PORTFOLIO_STATE, CLOSE_PORTFOLIO } from'../constants/actionTypes';
 
 /*Intial States*/
 const intialPortfolioState = {
@@ -32,6 +32,8 @@ const portfolioMove = (state = intialPortfolioState, action) => {
         swipeArrow: action.portfolioState.swipeArrow,
         swipeText: action.portfolioState.swipeText
       })
+    case CLOSE_PORTFOLIO:
+      return intialPortfolioState
 		default:
 			return state
 	}

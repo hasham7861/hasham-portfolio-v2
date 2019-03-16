@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {  changePortfolioState, changeHeadingSize } from "../../store/actions/actions";
+import {  changePortfolioState, changeHeadingSize, closePortfolio } from "../../store/actions/actions";
 
 class Portfolio extends Component {
-
 
   portfolioHeader = React.createRef();
   portfolioHeaderMoveDistance = 0;
@@ -13,7 +12,11 @@ class Portfolio extends Component {
     // Only declare the distance once on start from expand portfolio text to contact button
     this.portfolioHeaderMaxMoveDistance = Math.floor((this.portfolioHeader.current.offsetTop - this.props.contactButtonRef.current.offsetTop)/2);
   }
-  handleTouchEnd = () => {}
+  handleTouchEnd = () => {
+    if(this.props.portfolioHeaderState === "MidExpand"){
+      this.props.portfolioClose();
+    }
+  }
 
   handleTouchMove = (touchMoveEvent) => {
 
@@ -42,7 +45,7 @@ class Portfolio extends Component {
               bottom: this.portfolioHeaderMoveDistance + "px",
               position: 'absolute'
           },
-          portfolioHeaderState: 'Close',
+          portfolioHeaderState: 'MidExpand',
           contactButtonStyleClasses: 'Contact',
           swipeArrow: '▲',
           swipeText: 'Swipe Up To Expand Portfolio'
@@ -88,6 +91,13 @@ class Portfolio extends Component {
       onTouchEnd={()=>this.handleTouchEnd()}>
       <h2 className="upArrow">{this.props.swipeArrow}</h2>
       <h4>{this.props.swipeText}</h4>
+      {this.props.portfolioHeaderState === 'MidExpand' ?
+        <div style={{height: "1em",
+                    color:"coral"}}>
+          <h1>Meow</h1>
+        </div>
+        : ""
+      }
     </div>
     );
   }
@@ -107,6 +117,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return{
     portfolioMove: (newHeaderState) => dispatch(changePortfolioState(newHeaderState)),
+    portfolioClose:  () => dispatch(closePortfolio()),
     headerStateChange: (newHeaderState) => dispatch(changeHeadingSize(newHeaderState))
   };
 }

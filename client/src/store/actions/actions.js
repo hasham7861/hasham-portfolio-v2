@@ -5,6 +5,7 @@ import {
 	CLEAR_EMAIL_FORM,
 	CHANGE_PORTFOLIO_STATE,
 	CHANGE_HEADING_SIZE,
+	CLOSE_PORTFOLIO
 }	from '../constants/actionTypes';
 
 // The following actions are possible on emailMessage
@@ -31,4 +32,8 @@ export const changePortfolioState = portfolioState => ({
 export const changeHeadingSize = headingState => ({
 	type: CHANGE_HEADING_SIZE,
 	headingState
+});
+
+export const closePortfolio = () => ({
+	type: CLOSE_PORTFOLIO,
 });
