@@ -1,0 +1,15 @@
+.Projects{
+  height: 40px;
+  color: white;
+  background-color: #A19898;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  bottom:0;
+  overflow-y: hidden;
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0; */
+}

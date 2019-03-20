@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {  changePortfolioState, changeHeadingSize, closePortfolio } from "../../store/actions/actions";
+import {  changePortfolioState, changeHeadingSize, closePortfolio, expandPortfolioDiv } from "../../store/actions/actions";
+import Projects from '../Projects/Projects'
 
 class Portfolio extends Component {
 
@@ -15,20 +16,63 @@ class Portfolio extends Component {
   handleTouchEnd = () => {
     if(this.props.portfolioHeaderState === "MidExpand"){
       this.props.portfolioClose();
+      this.props.projects({
+        style:{height: "40px"}
+      });
     }
   }
 
-  handleTouchMove = (touchMoveEvent) => {
-
+  runDebug = () => {
     console.log("---/Debug/---");
     // console.log(this.props.headingRef.current.children[0].childNodes);
     // console.log("HeaderOffset: "+this.props.headingRef.current.offsetTop);
     // console.log("ContactButtonOffset: "+this.props.contactButtonRef.current.offsetTop);
-    // console.log("PortfolioTextOffset: "+this.portfolioHeader.current.offsetTop);
+    console.log("PortfolioTextOffsetTop: "+this.portfolioHeader.current.offsetTop);
+    console.log("PortfolioTextOffsetBottom: " + (this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight));
     // console.log("portfolioHeaderMoveDistance: " + this.portfolioHeaderMoveDistance);
     // console.log("portfolioHeaderMaxMoveDistance: "+ this.portfolioHeaderMaxMoveDistance);
-    // console.log("PortfolioHeaderState: " + this.props.portfolioHeaderState);
+    console.log("PortfolioHeaderState: " + this.props.portfolioHeaderState);
+  }
 
+  getNewPortfolioState = () => {
+    return {
+      portfolioHeaderStyle:{
+          bottom: this.portfolioHeaderMoveDistance + "px",
+          position: 'absolute'
+      },
+      portfolioHeaderState: 'MidExpand',
+      contactButtonStyleClasses: 'Contact',
+      swipeArrow: '▲',
+      swipeText: 'Swipe Up To Expand Portfolio'
+    }
+  }
+
+  getNewPortfolioStateAfterExpand = (newPortfolioMoveState) => {
+    return {
+      portfolioHeaderStyle:{
+        ...newPortfolioMoveState.portfolioHeaderStyle,
+        position:'absolute',
+        bottom: 0
+      },
+        portfolioHeaderState: 'Expand',
+        contactButtonStyleClasses: newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton',
+        swipeArrow: "▼",
+        swipeText: 'Swipe Down To Collapse Portfolio'
+      }
+
+  }
+
+  getNewHeaderState = () => {
+    return {
+       headerStyle:{
+         paddingTop: 0 + 'px',
+       }, headerState:'BIG'
+     }
+  }
+
+  handleTouchMove = (touchMoveEvent) => {
+
+    this.runDebug();
 
     // Change the state, only if the header is within this range of y value
     if(this.portfolioHeaderMoveDistance <= this.portfolioHeaderMaxMoveDistance &&
@@ -40,46 +84,37 @@ class Portfolio extends Component {
         this.portfolioHeaderMoveDistance =  Math.floor(this.portfolioHeader.current.offsetTop - touchMoveEvent.changedTouches[0].clientY);
 
         // New portfoilioText state for redux store
-        let newPortfolioMoveState = {
-          portfolioHeaderStyle:{
-              bottom: this.portfolioHeaderMoveDistance + "px",
-              position: 'absolute'
-          },
-          portfolioHeaderState: 'MidExpand',
-          contactButtonStyleClasses: 'Contact',
-          swipeArrow: '▲',
-          swipeText: 'Swipe Up To Expand Portfolio'
-        }
+        let newPortfolioMoveState = this.getNewPortfolioState();
 
         // New Heading state for redux store
-        let newHeaderState =  {
-           headerStyle:{
-             paddingTop: 0 + 'px',
-           }, headerState:'BIG'
-         }
+        let newHeaderState =  this.getNewHeaderState();
 
+
+        let newProjectsState = {
+          style: {
+            height: this.props.projectsDivHeight,
+          }
+        }
         // Once I have reached the maxoffset, set the portfolio to leave as expanded
         if(this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance){
-
           // Update the heading state once portfolio expands
           newHeaderState.classNames += ' expandPortfolio';
           this.props.headerStateChange(newHeaderState);
 
           // Updated State once the portfolio expands
-          newPortfolioMoveState = {
-            portfolioHeaderStyle:{
-              ...newPortfolioMoveState.portfolioHeaderStyle,
-              position:'relative',
-              bottom: 0
-            },
-              portfolioHeaderState: 'Expand',
-              contactButtonStyleClasses: newPortfolioMoveState.contactButtonStyleClasses += ' expandPortfolioContactButton',
-              swipeArrow: "▼",
-              swipeText: 'Swipe Down To Collapse Portfolio'
-            }
+          newPortfolioMoveState = this.getNewPortfolioStateAfterExpand(newPortfolioMoveState);
 
-        }
-         this.props.portfolioMove(newPortfolioMoveState);
+          newProjectsState.style.height = parseInt((this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight)
+                                          - this.props.projectsDivHeight.split("px")[0],10) + 14 + "px";
+
+          }
+
+        //   // Setting the height of the projects div
+
+        this.props.projects(newProjectsState);
+        this.props.portfolioMove(newPortfolioMoveState);
+
+
     }
   }
 
@@ -91,11 +126,8 @@ class Portfolio extends Component {
       onTouchEnd={()=>this.handleTouchEnd()}>
       <h2 className="upArrow">{this.props.swipeArrow}</h2>
       <h4>{this.props.swipeText}</h4>
-      {this.props.portfolioHeaderState === 'MidExpand' ?
-        <div style={{height: "1em",
-                    color:"coral"}}>
-          <h1>Meow</h1>
-        </div>
+      {this.props.portfolioHeaderState === 'Expand' ?
+        <Projects />
         : ""
       }
     </div>
@@ -110,7 +142,8 @@ const mapStateToProps = state => {
     headerStyle: state.headerStateChange.headerStyle,
     headerState: state.headerStateChange.headerState,
     swipeArrow: state.portfolioMove.swipeArrow,
-    swipeText: state.portfolioMove.swipeText
+    swipeText: state.portfolioMove.swipeText,
+    projectsDivHeight: state.projects.style.height, // changing the size of the projectsDiv
   };
 }
 
@@ -118,7 +151,8 @@ const mapDispatchToProps = dispatch => {
   return{
     portfolioMove: (newHeaderState) => dispatch(changePortfolioState(newHeaderState)),
     portfolioClose:  () => dispatch(closePortfolio()),
-    headerStateChange: (newHeaderState) => dispatch(changeHeadingSize(newHeaderState))
+    headerStateChange: (newHeaderState) => dispatch(changeHeadingSize(newHeaderState)),
+    projects: (newProjectsState) => dispatch(expandPortfolioDiv(newProjectsState))
   };
 }
 
