@@ -89,7 +89,6 @@ class Portfolio extends Component {
         // New Heading state for redux store
         let newHeaderState =  this.getNewHeaderState();
 
-
         let newProjectsState = {
           style: {
             height: this.props.projectsDivHeight,
@@ -104,8 +103,9 @@ class Portfolio extends Component {
           // Updated State once the portfolio expands
           newPortfolioMoveState = this.getNewPortfolioStateAfterExpand(newPortfolioMoveState);
 
-          newProjectsState.style.height = parseInt((this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight)
-                                          - this.props.projectsDivHeight.split("px")[0],10) + 14 + "px";
+          let portfolioTextOffsetBottom = this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight;
+          let projectsDivHeight = this.props.projectsDivHeight.split("px")[0] ;
+          newProjectsState.style.height = parseInt(portfolioTextOffsetBottom - projectsDivHeight) + "px";
 
           }
 
