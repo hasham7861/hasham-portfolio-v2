@@ -74,7 +74,7 @@ class Portfolio extends Component {
 
     this.runDebug();
 
-    // Change the state, only if the header is within this range of y value
+    // SwipeUP: Change the state, only if the header is within this range of y value
     if(this.portfolioHeaderMoveDistance <= this.portfolioHeaderMaxMoveDistance &&
       this.portfolioHeaderMoveDistance >= 0  &&
       this.props.portfolioHeaderState !== 'Expand' &&
@@ -94,7 +94,7 @@ class Portfolio extends Component {
             height: this.props.projectsDivHeight,
           }
         }
-        // Once I have reached the maxoffset, set the portfolio to leave as expanded
+        // SWIPEUP: Once I have reached the maxoffset, set the portfolio to leave as expanded
         if(this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance){
           // Update the heading state once portfolio expands
           newHeaderState.classNames += ' expandPortfolio';
@@ -107,13 +107,21 @@ class Portfolio extends Component {
           let projectsDivHeight = this.props.projectsDivHeight.split("px")[0] ;
           newProjectsState.style.height = parseInt(portfolioTextOffsetBottom - projectsDivHeight) + "px";
 
-          }
+        }
 
         //   // Setting the height of the projects div
 
         this.props.projects(newProjectsState);
         this.props.portfolioMove(newPortfolioMoveState);
-
+    } else{
+      console.log("After the first skip, the swipe down should be allowed");
+      console.log('Swipe Down');
+      // if(this.props.portfolioHeaderState === "Expand"){
+      //   this.props.portfolioClose();
+      //   this.props.projects({
+      //     style:{height: "40px"}
+      //   });
+      // }
 
     }
   }
