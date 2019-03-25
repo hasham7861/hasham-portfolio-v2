@@ -1,6 +1,5 @@
 # How to host the website
 
-1. Must have node installed on system
-2. Then type npm -v to see if npm is working
-3. Run the following commands in the server directory: npm install && npm run client-install
-4. To run the project. Type npm run dev insider  server directory
+1. Must have node and sh installed on system
+3. Type the following in CLI `sh install.sh` in the root directory to install dependences
+4. To run the project. Type `sh run.sh` in root directory
