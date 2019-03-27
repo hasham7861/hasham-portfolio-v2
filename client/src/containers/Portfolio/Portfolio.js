@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import {  changePortfolioState, changeHeadingSize, closePortfolio, expandPortfolioDiv } from "../../store/actions/actions";
+import {  changePortfolioState, changeHeadingSize, closePortfolio, expandPortfolioDiv, resetHeadingSize } from "../../store/actions/actions";
 import Projects from '../Projects/Projects'
 
 class Portfolio extends Component {
@@ -8,7 +8,8 @@ class Portfolio extends Component {
   portfolioHeader = React.createRef();
   portfolioHeaderMoveDistance = 0;
   portfolioHeaderMaxMoveDistance = 1;
-  swipeDownAllowed = false; 
+  swipeDownAllowed = false;
+  swipeUpAllowed = true;
 
   // The following touch events only work with TOUCH BASED DEVICES
   handleTouchStart = (touchStartEvent) => {
@@ -16,8 +17,14 @@ class Portfolio extends Component {
     this.portfolioHeaderMaxMoveDistance = Math.floor((this.portfolioHeader.current.offsetTop - this.props.contactButtonRef.current.offsetTop)/2);
     
     //Allowed to only swipe down once the portfolio is expanded
-    if(this.props.portfolioHeaderState === "Expand")
+    if(this.props.portfolioHeaderState === "Expand"){
       this.swipeDownAllowed = true;
+      this.swipeUpAllowed = false;
+    }
+    else{
+      this.swipeDownAllowed = false;
+      this.swipeUpAllowed = true;
+    }
  
   }
   handleTouchEnd = () => {
@@ -79,65 +86,65 @@ class Portfolio extends Component {
 
   handleTouchMove = (touchMoveEvent) => {
 
-    this.runDebug();
-    let shouldSwipeUp = this.portfolioHeaderMoveDistance <= this.portfolioHeaderMaxMoveDistance;
-    let shouldSwipeDown = this.portfolioHeaderMoveDistance > this.portfolioHeaderMaxMoveDistance;
+    // this.runDebug();
+ 
+    // console.log(shouldSwipeUp);
     // SwipeUP: Change the state, only if the header is within this range of y value
-    if(shouldSwipeUp){
-        if( this.props.portfolioHeaderState !== 'Expand' && this.portfolioHeaderMoveDistance >= 0 &&
+    if(this.swipeUpAllowed &&
+      this.props.portfolioHeaderState !== 'Expand' && this.portfolioHeaderMoveDistance >= 0 &&
             this.portfolioHeader.current.offsetTop >= touchMoveEvent.changedTouches[0].clientY){
-            // SwipeUpToExpandPortfolio Text dyanmic default header position
-            this.portfolioHeaderMoveDistance =  Math.floor(this.portfolioHeader.current.offsetTop - touchMoveEvent.changedTouches[0].clientY);
+              
+         // SwipeUpToExpandPortfolio Text dyanmic default header position
+        this.portfolioHeaderMoveDistance =  Math.floor(this.portfolioHeader.current.offsetTop - touchMoveEvent.changedTouches[0].clientY);
 
-            // New portfoilioText state for redux store
-            let newPortfolioMoveState = this.getNewPortfolioState();
-            // New Heading state for redux store
-            let newHeaderState =  this.getNewHeaderState();
-            let newProjectsState = {
-              style: {
-                height: this.props.projectsDivHeight,
-              }
-            }
-            // SWIPEUP: Once I have reached the maxoffset, set the portfolio to leave as expanded
-            let shouldExpand = this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance;
+        // New portfoilioText state for redux store
+        let newPortfolioMoveState = this.getNewPortfolioState();
+        // New Heading state for redux store
+        let newHeaderState =  this.getNewHeaderState();
+        let newProjectsState = {
+          style: {
+            height: this.props.projectsDivHeight,
+          }
+        }
+        // SWIPEUP: Once I have reached the maxoffset, set the portfolio to leave as expanded
+        let shouldExpand = this.portfolioHeaderMoveDistance >= this.portfolioHeaderMaxMoveDistance;
 
-            if(shouldExpand){
-              // Update the heading state once portfolio expands
-              newHeaderState.classNames += ' expandPortfolio';
-              this.props.headerStateChange(newHeaderState);
+        if(shouldExpand){
+          // Update the heading state once portfolio expands
+          newHeaderState.classNames += ' expandPortfolio';
+          this.props.headerStateChange(newHeaderState);
 
-              // Updated State once the portfolio expands
-              newPortfolioMoveState = this.getNewPortfolioStateAfterExpand(newPortfolioMoveState);
+          // Updated State once the portfolio expands
+          newPortfolioMoveState = this.getNewPortfolioStateAfterExpand(newPortfolioMoveState);
 
-              let portfolioTextOffsetBottom = this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight;
-              let projectsDivHeight = this.props.projectsDivHeight.split("px")[0] ;
-              newProjectsState.style.height = parseInt(portfolioTextOffsetBottom - projectsDivHeight) + "px";
-          
-            }
+          let portfolioTextOffsetBottom = this.portfolioHeader.current.offsetTop - this.portfolioHeader.current.clientHeight;
+          let projectsDivHeight = this.props.projectsDivHeight.split("px")[0] ;
+          newProjectsState.style.height = parseInt(portfolioTextOffsetBottom - projectsDivHeight) + "px";
+      
+        }
 
         //   // Setting the height of the projects div
         // console.log('Swipe Down');
         this.props.projects(newProjectsState);
         this.props.portfolioMove(newPortfolioMoveState);
-        }
+        
     
-    } else{
+    } else if (this.swipeDownAllowed){
       // if()
       //TODO: Work on SwipeDown
-      // console.log("After the first skip, the swipe down should be allowed");
     
-      if(this.swipeDownAllowed){
+    
         // console.log(touchMoveEvent.detail);
         // touchMoveEvent.defaultPrevent = "set";
 
-        this.props.portfolioClose();
-        this.props.projects({
-          style:{height: "40px"}
-        });
-        console.log("Swipe Down------------------>>")
-      }
-
+      this.props.portfolioClose();
+      this.props.headerStateReset();
+      this.props.projects({
+        style:{height: "40px"}
+      });   
+      
     }
+   
   }
 
   render() {
@@ -174,7 +181,8 @@ const mapDispatchToProps = dispatch => {
     portfolioMove: (newHeaderState) => dispatch(changePortfolioState(newHeaderState)),
     portfolioClose:  () => dispatch(closePortfolio()),
     headerStateChange: (newHeaderState) => dispatch(changeHeadingSize(newHeaderState)),
-    projects: (newProjectsState) => dispatch(expandPortfolioDiv(newProjectsState))
+    headerStateReset: () => dispatch(resetHeadingSize()),
+    projects: (newProjectsState) => dispatch(expandPortfolioDiv(newProjectsState)),
   };
 }
 

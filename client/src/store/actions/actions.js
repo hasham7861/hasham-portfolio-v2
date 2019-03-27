@@ -6,7 +6,8 @@ import {
 	CHANGE_PORTFOLIO_STATE,
 	CHANGE_HEADING_SIZE,
 	CLOSE_PORTFOLIO,
-	EXPAND_PORTFOLIO_DIV
+	EXPAND_PORTFOLIO_DIV,
+	RESET_HEADING_SIZE
 }	from '../constants/actionTypes';
 
 // The following actions are possible on emailMessage
@@ -42,4 +43,8 @@ export const closePortfolio = () => ({
 export const expandPortfolioDiv = (portfolioState) => ({
 	type: EXPAND_PORTFOLIO_DIV,
 	portfolioState
+})
+
+export const resetHeadingSize = () => ({
+	type: RESET_HEADING_SIZE
 })

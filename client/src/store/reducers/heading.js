@@ -1,4 +1,4 @@
-import { CHANGE_HEADING_SIZE } from '../constants/actionTypes'
+import { CHANGE_HEADING_SIZE, RESET_HEADING_SIZE } from '../constants/actionTypes'
 
 const intialHeadingState = {
   headerStyle: {
@@ -18,6 +18,8 @@ const headerStateChange = (state = intialHeadingState, action) => {
             headerState: action.headingState.headerState,
             classNames: action.headingState.classNames
           })
+    case RESET_HEADING_SIZE:
+          return intialHeadingState
     default:
       return state
   }
