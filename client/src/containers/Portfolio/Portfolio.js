@@ -133,10 +133,6 @@ class Portfolio extends Component {
       // if()
       //TODO: Work on SwipeDown
     
-    
-        // console.log(touchMoveEvent.detail);
-        // touchMoveEvent.defaultPrevent = "set";
-
       this.props.portfolioClose();
       this.props.headerStateReset();
       this.props.projects({

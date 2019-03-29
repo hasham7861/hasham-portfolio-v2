@@ -3,8 +3,8 @@ import { EXPAND_PORTFOLIO_DIV } from '../constants/actionTypes';
 const intialProjectsDivSite = {
   style: {
     height: '70px',
-    overflow: 'hidden'
-  }
+  },
+  projects:[]
 };
 
  const projects = (state = intialProjectsDivSite , action) => {
@@ -13,9 +13,10 @@ const intialProjectsDivSite = {
     return Object.assign({}, state, {
         style:{
           height: action.portfolioState.style.height,
-          overflow: 'hidden'
         }
       })
+    // case ADD_PROJECTS:
+      
     default:
       return state;
   }
