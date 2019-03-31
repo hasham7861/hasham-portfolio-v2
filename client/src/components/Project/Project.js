@@ -1,14 +1,14 @@
 import React from 'react';
 import './Project.css';
 
-const Project = () => {
+const Project = (props) => {
 
     return (
         <div className="Project">
-            <h4>Project X </h4>
+            <h4>Project {props.id} </h4>
             <p>
-                <u>About: </u>
-                This project makes people's easier
+                About: 
+                This project makes people's life easier
             </p>
         </div>
     )

@@ -130,9 +130,7 @@ class Portfolio extends Component {
         
     
     } else if (this.swipeDownAllowed){
-      // if()
-      //TODO: Work on SwipeDown
-    
+      
       this.props.portfolioClose();
       this.props.headerStateReset();
       this.props.projects({

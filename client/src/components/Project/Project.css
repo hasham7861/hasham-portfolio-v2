@@ -2,16 +2,16 @@
     background-color:#4E3535;
     height: 100px;
     border-radius: 15px;
-    padding: 10px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* width: auto; */
+    padding: 10px 30px;
 }
 
 p{
     /* margin:0; */
     line-height: 20px;
     font-size:13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 

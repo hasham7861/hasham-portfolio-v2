@@ -14,8 +14,10 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path='/contact' component={ContactScreen}/>
+            <Route path="/" exact component={Home}/>
+            {/* TODO: Change the contact page into more detailed pages */}
+            <Route path='/contact' exact component={ContactScreen}/>
+            <Router path="/project/:id" exact/>
           </Switch>
         </Router>
 
