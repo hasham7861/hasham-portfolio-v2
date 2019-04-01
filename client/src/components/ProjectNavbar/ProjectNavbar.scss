@@ -1,0 +1,22 @@
+@import '../../colors.scss';
+
+.ProjectNavbar{
+    background-color: $navbarColor;
+    height:40px;
+   
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-self: center;
+    
+
+    a {
+        flex-grow: 1; 
+        text-decoration: none;
+    }
+    
+}
+
+.linkSelected{
+    background-color:lighten($backgroundColor,100%);
+}

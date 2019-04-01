@@ -1,10 +1,13 @@
+@import "./colors.scss";
+
 .App{
-  background-color: #231616;
+  background-color: $backgroundColor;
   font-family: 'Montserrat', sans-serif;
   color:white;
   text-align: center;
   height: 100vh;
   user-select: none;
+  
 }
 
 
@@ -14,13 +17,13 @@ h3,h4,h5{
 
 a{
   color:white;
-  text-decoration: none;
 }
 
 /*The following css is for the link container for contact button*/
 .Contact{
   display: block;
   margin: 5em;
+
 }
 .Contact:hover{
   color:black;
@@ -30,10 +33,11 @@ a{
   /* margin: 0; */
   margin-bottom: 2em;
   margin-top: 2em;
-}
-.expandPortfolioContactButton .ContactButton h4{
-  padding: 5px 50px;
-  font-size: 1em;
+ 
+  .ContactButton h4{
+    padding: 5px 50px;
+    font-size: 1em;
+  }
 }
 
 
