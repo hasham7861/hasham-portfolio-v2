@@ -5,13 +5,11 @@ import './ProjectNavbar.scss';
 const ProjectNavbar = (props) => {
     return (
         <div className="ProjectNavbar">
-           <NavLink to="/">Home</NavLink> 
-           <NavLink to={"/project/"+props.projectRoute}
-            activeStyle={{
-                backgroundColor:'#301e1e',
-            }
-            }
-            >{props.projectRoute}</NavLink> 
+           <NavLink className="NavLink" to="/">Home</NavLink> 
+           <NavLink 
+                className="NavLink"to={"/project/"+props.projectRoute} 
+                activeClassName="NavLinkActive">
+            {props.projectRoute}</NavLink> 
         </div>
     );
 }

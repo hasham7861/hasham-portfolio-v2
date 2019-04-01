@@ -8,15 +8,29 @@
     align-items: stretch;
     justify-content: flex-start;
     align-self: center;
-    
 
-    a {
-        flex-grow: 1; 
+    .NavLink {
+        flex-grow: 1;
         text-decoration: none;
+        padding-top:10px;
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+        &:hover{
+            text-decoration: underline;
+        }
     }
+
+
+    .NavLinkActive{
+        background-color:#301e1e;
+
+       
+    }
+
+   
+
     
 }
 
-.linkSelected{
-    background-color:lighten($backgroundColor,100%);
-}
+
+
+

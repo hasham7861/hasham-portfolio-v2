@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import "./Projects.css";
+import "./Projects.scss";
 import Project from "../../components/Project/Project";
 
 class Projects extends Component {
@@ -20,9 +20,9 @@ class Projects extends Component {
       const projectRoute = "/project/" + this.state.projects[i];
       const projectJSX = (
         // TODO: Change the i to a project name instead
-        <Link to={projectRoute}>
+        <NavLink className="ProjectLink" to={projectRoute}>
           <Project id={this.state.projects[i]}/>
-        </Link>
+        </NavLink>
       );
 
 
