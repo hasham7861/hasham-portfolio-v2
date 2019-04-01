@@ -1,0 +1,27 @@
+@import '../../colors.scss';
+
+.ProjectScreen{
+    h1{
+        text-transform: uppercase;
+    }
+   
+    section{
+        background-color: $navbarColor;
+        margin: 10px 30px;
+        padding: 10px 20px;
+        border-radius: 15px;
+
+        h3{
+            text-align: left;
+            color: $backgroundColor;
+            &:after{
+                content: ":";
+            }
+        }
+
+        p{
+            font-size:0.9em;
+            text-align: left;
+        }
+    }
+}
