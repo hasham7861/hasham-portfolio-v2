@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './containers/Portfolio/Portfolio';
-import './Home.css';
 
 
 class  Home extends Component {
