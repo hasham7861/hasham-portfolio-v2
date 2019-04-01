@@ -18,8 +18,9 @@ class Portfolio extends Component {
     
     //Allowed to only swipe down once the portfolio is expanded
     if(this.props.portfolioHeaderState === "Expand"){
-      this.swipeDownAllowed = true;
-      this.swipeUpAllowed = false;
+        this.swipeDownAllowed = true;
+        this.swipeUpAllowed = false;
+    
     }
     else{
       this.swipeDownAllowed = false;
@@ -130,12 +131,13 @@ class Portfolio extends Component {
         
     
     } else if (this.swipeDownAllowed){
-      
+      if(touchMoveEvent.changedTouches[0].clientY - this.portfolioHeader.current.offsetTop >= 0){
       this.props.portfolioClose();
       this.props.headerStateReset();
       this.props.projects({
         style:{height: "40px"}
-      });   
+      }); 
+    }  
       
     }
    
@@ -143,13 +145,15 @@ class Portfolio extends Component {
 
   render() {
     return (
-    <div ref={this.portfolioHeader} className="portfolio" style={this.props.portfolioHeaderStyle}
-      onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
-      onTouchMove={touchMoveEvent => this.handleTouchMove(touchMoveEvent)}
-      onTouchEnd={()=>this.handleTouchEnd()}>
-      <h2 className="upArrow">{this.props.swipeArrow}</h2>
-      <h4>{this.props.swipeText}</h4>
-      {this.props.portfolioHeaderState === 'Expand' ?
+        <div ref={this.portfolioHeader} className="portfolio" style={this.props.portfolioHeaderStyle}>
+          <div   
+            onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
+            onTouchMove={touchMoveEvent => this.handleTouchMove(touchMoveEvent)}
+            onTouchEnd={()=>this.handleTouchEnd()}>
+            <h2 className="upArrow">{this.props.swipeArrow}</h2>
+            <h4>{this.props.swipeText}</h4>
+          </div>
+          {this.props.portfolioHeaderState === 'Expand' ?
         <Projects />
         : ""
       }

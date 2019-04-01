@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Heading from './components/Heading/Heading';
 import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './containers/Portfolio/Portfolio';
+import './Home.css';
 
 
 class  Home extends Component {
@@ -14,7 +15,7 @@ class  Home extends Component {
 
     render(){
       return (
-        <div>
+        <div className="Home">
             <div style={this.props.headerStyle} ref={this.headingRef}><Heading classNames={this.props.headerClassNames}/></div>
             <div ref={this.contactButtonRef}>
               <Link className={this.props.contactButtonStyleClasses} to="/contact">

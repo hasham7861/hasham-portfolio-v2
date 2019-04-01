@@ -3,11 +3,13 @@
 .ProjectNavbar{
     background-color: $navbarColor;
     height:40px;
-   
+    position: fixed;
+    top:0;
+    width:100%;
     display: flex;
     align-items: stretch;
-    justify-content: flex-start;
     align-self: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     .NavLink {
         flex-grow: 1;

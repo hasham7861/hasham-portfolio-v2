@@ -24,12 +24,17 @@ class ProjectScreen extends Component {
                         <p>{this.projectDescription}</p>
                     </section>
                     <section className="SkillsUsed">
-                        <h3>SkillsUsed</h3>
+                        <h3>Skills Used</h3>
                         <p>{this.projectSkillsUsed}</p>
                     </section>
                     <section className="Contributors">
                         <h3>Contributors</h3>
                         <p>{this.projectContributors}</p>
+                    </section>
+                    <section>
+                        <a href="https://github.com/hasham7861/PersonalWebsite">
+                            View Source Code
+                        </a>
                     </section>
                 </div>
             </>
