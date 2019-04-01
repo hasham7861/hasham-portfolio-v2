@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProjectNavbar from '../../components/ProjectNavbar/ProjectNavbar';
 import './ProjectScreen.scss';
 
+
 class ProjectScreen extends Component {
     
     projectName = "";

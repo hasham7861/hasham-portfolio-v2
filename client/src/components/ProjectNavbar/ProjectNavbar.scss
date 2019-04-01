@@ -14,10 +14,13 @@
     .NavLink {
         flex-grow: 1;
         text-decoration: none;
-        padding-top:10px;
+        padding-top:7px;
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
         &:hover{
             text-decoration: underline;
+        }
+        img{
+            width:30px;
         }
     }
 
