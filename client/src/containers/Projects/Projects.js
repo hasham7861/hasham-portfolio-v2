@@ -17,10 +17,10 @@ class Projects extends Component {
     const projects = []
 
     for(var i=0; i<this.state.projects.length; i++){
-
+      const projectRoute = "/project/" + this.state.projects[i];
       const projectJSX = (
         // TODO: Change the i to a project name instead
-        <Link to={"/project"+"/" + this.state.projects[i]}>
+        <Link to={projectRoute}>
           <Project id={this.state.projects[i]}/>
         </Link>
       );
@@ -39,14 +39,12 @@ class Projects extends Component {
   render() {
       return (
           <div className="ProjectsBackDrop" style={this.props.style}>
-              {/* <h1>Loaded Projects</h1> */}
               <div className="ProjectsContainer">
                 <ul>
                   {this.state.projects.map((project,index)=>
                     <li key={index}>{project}</li>
                   )}
                 </ul>
-                {/* <Project/> */}
               </div>
               
           </div>
@@ -58,14 +56,11 @@ class Projects extends Component {
 const mapStateToProps = (state) => {
   return {
     style: state.projects.style,
-
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
+  return { }
 }
 
 export default connect(
