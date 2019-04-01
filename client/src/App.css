@@ -27,8 +27,8 @@ a{
 }
 /* The following is link container for contact button after expand portfolio*/
 .expandPortfolioContactButton{
-  margin: 0;
-  margin-bottom: 4em;
+  /* margin: 0; */
+  margin-bottom: 2em;
   margin-top: 2em;
 }
 .expandPortfolioContactButton .ContactButton h4{
