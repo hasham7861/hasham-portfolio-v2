@@ -1,5 +1,8 @@
-# How to host the website
+# How to use the App ?
+#### Notes:
+1. Must have npm installed on system.
+2. Type the following commands inside of terminal of root directory.
 
-1. Must have npm installed on system
-3. Type the following in CLI `npm install` in the root directory to install dependences
-4. To run the project. Type `npm start` in root directory
+#### Commands:
+1. Type `npm install` to install dependences.
+2. Type `npm start` to start the app.
