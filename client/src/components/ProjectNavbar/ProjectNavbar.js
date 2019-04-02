@@ -8,10 +8,10 @@ const ProjectNavbar = (props) => {
         <div className="ProjectNavbar">
            {/* <NavLink className="NavLink" to="/">Home</NavLink>  */}
            <NavLink className="NavLink" to="/">
-                    <img src={HomeIcon}></img>
-            </NavLink> 
-           {/* <NavLink 
-                className="NavLink"to={"/project/"+props.projectRoute} 
+                    <img src={HomeIcon} alt="HomeIconImage"></img>
+            </NavLink>
+           {/* <NavLink
+                className="NavLink"to={"/project/"+props.projectRoute}
                 activeClassName="NavLinkActive">
             {props.projectRoute}</NavLink>  */}
         </div>
