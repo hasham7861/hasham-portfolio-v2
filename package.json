@@ -1,25 +1,11 @@
 {
   "name": "WebsiteV4",
-  "description": "1. Must have node and sh installed on system\r 3. Type the following in CLI `sh install.sh` in the root directory to install dependences\r 4. To run the project. Type `sh run.sh` in root directory",
   "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "install":"cd ./server && npm run client-install && npm install && cd ..",
     "start": "cd ./server && npm run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hasham7861/WebsiteV4.git"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hasham7861/WebsiteV4/issues"
-  },
-  "homepage": "https://github.com/hasham7861/WebsiteV4#readme"
+  "author": "Hasham Alam",
+  "license": "MIT"
 }
