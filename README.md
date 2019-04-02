@@ -1,4 +1,4 @@
-# How to host the website
+# How to use the App ?
 #### Notes:
 1. Must have npm installed on system.
 2. Type the following commands inside of terminal of root directory.
