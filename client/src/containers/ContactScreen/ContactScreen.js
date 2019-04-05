@@ -5,6 +5,7 @@ import { saveEmail, saveSubject, saveMessage, clearEmailForm } from "../../store
 import './ContactScreen.css'
 import App from '../../App';
 import axios from 'axios';
+import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
 
 
 class ContactScreen extends Component {
@@ -29,6 +30,7 @@ class ContactScreen extends Component {
 
   render() {
     return (
+      // TODO: Get rid of the extra router here and the ugly code
       <Router>
         <div>
           <Route path="/contact" render={props =>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-// import {Link} from "react-router-dom";
 import Heading from './components/Heading/Heading';
-// import ContactButton from './components/ContactButton/ContactButton';
 import Portfolio from './containers/Portfolio/Portfolio';
 import HomeNavBar from './components/HomeNavBar/HomeNavBar';
 
@@ -17,9 +15,6 @@ class  Home extends Component {
         <div className="Home">
             <div style={this.props.headerStyle} ref={this.headingRef}><Heading classNames={this.props.headerClassNames}/></div>
             <div ref={this.contactButtonRef}>
-              {/* <Link className={this.props.contactButtonStyleClasses} to="/contact">
-                <ContactButton/>
-              </Link> */}
               <HomeNavBar/>
             </div>
             <Portfolio headingRef={this.headingRef} contactButtonRef={this.contactButtonRef}/>
@@ -32,7 +27,6 @@ class  Home extends Component {
     return{
       headerStyle: state.headerStateChange.headerStyle,
       headerClassNames: state.headerStateChange.classNames,
-      contactButtonStyleClasses: state.portfolioMove.contactButtonStyleClasses
     }
   }
   

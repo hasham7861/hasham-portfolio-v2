@@ -1,0 +1,52 @@
+@import '../../colors.scss';
+
+.AboutScreen{
+    padding-top:80px;
+    .MyFace{
+
+        img{
+            width:150px;
+            border: 5px solid $navbarColor;
+            border-radius: 100%;
+        }
+
+    }
+  
+
+    section{
+        background-color: $navbarColor;
+        margin: 10px 30px;
+        padding: 10px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        h3{
+            text-align: left;
+            color: $backgroundColor;
+            &:after{
+                content: ":";
+            }
+        }
+
+        p{
+            font-size:0.9em;
+            text-align: left;
+        }
+
+        a{
+            text-decoration: none;
+            color:$backgroundColor;
+        }
+
+        .SkillsIconBar{                      
+            img{
+                border-radius: 100%;
+                border: 1px solid $backgroundColor;
+                margin:5px;
+
+            }
+        }
+
+        
+    }
+}
