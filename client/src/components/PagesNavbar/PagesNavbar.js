@@ -9,15 +9,15 @@ import NavbarSeprator from '../../images/NavbarSeprator.svg';
 const PagesNavbar = () => {
     return (
         <div className="PagesNavbar">
-            <NavLink to="/">
+            <NavLink to="/" >
                 <img src={HomeIcon} alt="Home Icon"/>
             </NavLink>
-            <img src={NavbarSeprator} alt="alt seprator"></img>
-            <NavLink to="/about">
+            <img src={NavbarSeprator} alt="alt seprator" ></img>
+            <NavLink to="/about" activeClassName="NavLinkActive">
                 <img src={AboutIcon} alt="About Icon"/>
             </NavLink>
             <img src={NavbarSeprator} alt="alt seprator"></img>
-            <NavLink to="/contact">
+            <NavLink to="/contact" activeClassName="NavLinkActive">
                 <img src={ContactIcon} alt="Contact Icon"/>
             </NavLink>
         </div>
