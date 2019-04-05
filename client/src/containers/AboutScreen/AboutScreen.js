@@ -40,7 +40,7 @@ class AboutScreen extends Component{
                     </div>
                 </section>
                 <section>
-                    <a href={MyResumePdf} target="_blank">View Resume</a>
+                    <a href={MyResumePdf} target="_blank" rel="noopener noreferrer">View Resume</a>
                 </section>
             </div>
             </>

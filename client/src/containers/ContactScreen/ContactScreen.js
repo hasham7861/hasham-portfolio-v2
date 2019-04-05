@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { saveEmail, saveSubject, saveMessage, clearEmailForm } from "../../store/actions/actions";
-import './ContactScreen.css'
-import App from '../../App';
+import './ContactScreen.css';
 import axios from 'axios';
 import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
 
@@ -31,13 +29,10 @@ class ContactScreen extends Component {
   render() {
     return (
       // TODO: Get rid of the extra router here and the ugly code
-      <Router>
-        <div>
-          <Route path="/contact" render={props =>
+          <>
+            <PagesNavbar/>
             <div className="ContactScreen">
-              <Link to='/'><h5>◀ Go Back To Home</h5></Link>
-              <h1>Contact Me</h1>
-
+              <h3>Email</h3>
               <form onSubmit={this.sendMessage.bind(this)}>
                 <input
                   onChange={this.props.emailOnChange}
@@ -60,14 +55,13 @@ class ContactScreen extends Component {
                 </textarea>
                  <button type="submit">Send Message</button>
               </form>
+              <h3>Follow me Here</h3>
               <div className="contactBar">
-
+                <a href="https://github.com/hasham7861" target="_blank" rel="noopener noreferrer">Github</a>
+                <a href="https://www.linkedin.com/in/hasham7861/" target="_blank" rel="noopener noreferrer">Linkedin</a>
               </div>
-            </div>}
-          />
-          <Route exact path='/' component={App}/>
         </div>
-        </Router>
+        </>
     )
   }
 }
