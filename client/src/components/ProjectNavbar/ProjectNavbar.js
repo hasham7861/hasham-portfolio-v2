@@ -6,7 +6,7 @@ import HomeIcon from '../../images/HomeIcon.svg';
 const ProjectNavbar = (props) => {
     return (
         <div className="ProjectNavbar">
-           <NavLink to="/">
+           <NavLink to="/" activeClassName="NavLinkActive">
                     <img src={HomeIcon} alt="HomeIconImage"></img>
             </NavLink>
         </div>
