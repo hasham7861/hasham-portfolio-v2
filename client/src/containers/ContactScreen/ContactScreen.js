@@ -9,7 +9,7 @@ import LinkedinIcon from '../../images/SocialMediaIcons/LinkedinIcon.svg';
 
 
 class ContactScreen extends Component {
-
+  
   sendMessage = event => {
     event.preventDefault(); // prevent the page from refreshing everytime
     const {email, subject, message} = this.props.emailMessage;

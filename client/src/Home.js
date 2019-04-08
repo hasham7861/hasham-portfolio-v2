@@ -4,20 +4,22 @@ import Heading from './components/Heading/Heading';
 import Portfolio from './containers/Portfolio/Portfolio';
 import HomeNavBar from './components/HomeNavBar/HomeNavBar';
 
-class  Home extends Component {
+class Home extends Component {
 
-    
     headingRef = React.createRef();
     contactButtonRef = React.createRef();
 
     render(){
       return (
         <div className="Home">
-            <div style={this.props.headerStyle} ref={this.headingRef}><Heading classNames={this.props.headerClassNames}/></div>
+            <div style={this.props.headerStyle} ref={this.headingRef}>
+              <Heading classNames={this.props.headerClassNames}/></div>
             <div ref={this.contactButtonRef}>
               <HomeNavBar/>
             </div>
-            <Portfolio headingRef={this.headingRef} contactButtonRef={this.contactButtonRef}/>
+            <Portfolio 
+              headingRef={this.headingRef} 
+              contactButtonRef={this.contactButtonRef}/>
         </div>
       )
     }
