@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  BrowserView,
+  MobileView
+} from "react-device-detect";
 import './Home.scss';
 import { connect } from 'react-redux';
 import Heading from './components/Heading/Heading';
@@ -13,16 +17,27 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <div style={this.props.headerStyle} ref={this.headingRef}>
-          <Heading classNames={this.props.headerClassNames} />
-        </div>
-        <div ref={this.contactButtonRef}>
-          <HomeNavBar />
-        </div>
-        <Portfolio
-          headingRef={this.headingRef}
-          contactButtonRef={this.contactButtonRef}
-        />
+
+        <BrowserView viewClassName="DesktopViewHome">
+          <div className="DesktopScreenSizeError"><h2>Inorder to use this app, you must increase the width of this browser.</h2></div>
+          <div className="DesktopScreen">
+            <Heading classNames={this.props.headerClassNames}/>
+          </div>
+        </BrowserView>
+         
+        <MobileView>
+          <div style={this.props.headerStyle} ref={this.headingRef}>
+            <Heading classNames={this.props.headerClassNames} />
+          </div>
+          <div ref={this.contactButtonRef}>
+            <HomeNavBar />
+          </div>
+          <Portfolio
+            headingRef={this.headingRef}
+            contactButtonRef={this.contactButtonRef}
+          />
+        </MobileView>
+        
       </div>
     );
   }

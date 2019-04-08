@@ -1,3 +1,38 @@
+@import './colors.scss';
+$break-small: 500px;
+$break-large:700px;
+
+
 .Home{
+    display: inline-block;
+    vertical-align: middle;
+    
     color:white;
+    .DesktopViewHome{
+        .DesktopScreenSizeError{
+            display: block;
+            border-radius: 15px;
+            border: 20px solid $navbarColor;
+            border-image: url('./images/DesktopResizeBorderImage.png') 34% repeat;
+            padding: 10px;
+            margin: 30px;
+        }
+
+        .DesktopScreen{
+            display: none;
+        }
+    }
+    @media screen and (min-width: $break-large){
+        .DesktopViewHome{
+            .DesktopScreenSizeError{
+                display:none;  
+            }
+            .DesktopScreen{
+                display: flex;   
+                padding: 0;
+                
+            }
+           
+        }
+       }
 }
