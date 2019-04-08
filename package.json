@@ -2,10 +2,13 @@
   "name": "WebsiteV4",
   "version": "1.0.0",
   "scripts": {
-    "install":"cd ./server && npm run client-install && npm install && cd ..",
+    "install": "cd ./server && npm run client-install && npm install && cd ..",
     "start": "cd ./server && npm run dev"
   },
   "keywords": [],
   "author": "Hasham Alam",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.16.4"
+  }
 }
