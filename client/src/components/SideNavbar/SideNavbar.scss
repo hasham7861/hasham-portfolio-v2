@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+
+.SideNavbar{
+    position: absolute;
+    left:0;
+    width:27%;
+    height: 100vh;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    background-color:$sideNavbarColor;
+    a{
+        // flex-grow: 1;
+        display: block;
+    }
+}

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import {
-  BrowserView,
-  MobileView
-} from "react-device-detect";
+import { BrowserView, MobileView } from 'react-device-detect';
 import './Home.scss';
 import { connect } from 'react-redux';
 import Heading from './components/Heading/Heading';
 import Portfolio from './containers/Portfolio/Portfolio';
 import HomeNavBar from './components/HomeNavBar/HomeNavBar';
+import SideNavbar from './components/SideNavbar/SideNavbar';
 
 class Home extends Component {
   headingRef = React.createRef();
@@ -17,14 +15,19 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-
         <BrowserView viewClassName="DesktopViewHome">
-          <div className="DesktopScreenSizeError"><h2>Inorder to use this app, you must increase the width of this browser.</h2></div>
+          <SideNavbar />
           <div className="DesktopScreen">
-            <Heading classNames={this.props.headerClassNames}/>
+            <Heading />
+          </div>
+          <div className="DesktopScreenSizeError">
+            <h2>
+              Please enlarge the browser width and height to fullscreen in-order
+              to view my website
+            </h2>
           </div>
         </BrowserView>
-         
+
         <MobileView>
           <div style={this.props.headerStyle} ref={this.headingRef}>
             <Heading classNames={this.props.headerClassNames} />
@@ -37,7 +40,6 @@ class Home extends Component {
             contactButtonRef={this.contactButtonRef}
           />
         </MobileView>
-        
       </div>
     );
   }

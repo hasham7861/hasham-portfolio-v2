@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
@@ -16,7 +15,6 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            {/* TODO: Change the contact page into more detailed pages */}
             <Route path="/about" exact component={AboutScreen} />
             <Route path="/contact" exact component={ContactScreen} />
             <Route path="/project/:id/" exact component={ProjectScreen} />

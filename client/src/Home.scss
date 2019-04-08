@@ -21,14 +21,26 @@ $break-large:700px;
         .DesktopScreen{
             display: none;
         }
+        .SideNavbar{
+            display: none;
+        }
     }
     @media screen and (min-width: $break-large){
         .DesktopViewHome{
+            display:grid;
+            grid-template-columns: auto auto;
             .DesktopScreenSizeError{
                 display:none;  
             }
+            .SideNavbar{
+                display: inline;
+                // grid-column-start: 1;
+                // grid-column-end: 3;
+            }
+         
             .DesktopScreen{
-                display: flex;   
+                display: inherit; 
+                // position: relative;  
                 padding: 0;
                 
             }
