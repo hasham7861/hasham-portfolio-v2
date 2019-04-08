@@ -1,6 +1,6 @@
+/* eslint-disable import/no-unresolved */
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import './App.scss';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
 import Home from './Home';

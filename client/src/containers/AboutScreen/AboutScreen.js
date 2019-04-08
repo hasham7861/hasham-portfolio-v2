@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import "./AboutScreen.scss";
-import PagesNavbar from "../../components/PagesNavbar/PagesNavbar";
-import MyFace from "../../images/MyFace.jpg";
-import JSIcon from "../../images/SkillsSetIcons/JSIcon.svg";
-import ReactIcon from "../../images/SkillsSetIcons/ReactIcon.svg";
-import ReduxIcon from "../../images/SkillsSetIcons/ReduxIcon.svg";
-import MySqlIcon from "../../images/SkillsSetIcons/MySqlIcon.svg";
-import NodeIcon from "../../images/SkillsSetIcons/NodeIcon.svg";
-import AdobeXDIcon from "../../images/SkillsSetIcons/AdobeXDIcon.svg";
-import MyResumePdf from "../../documents/Hasham_Alam_Resume.pdf";
-
+import React, { Component } from 'react';
+import './AboutScreen.scss';
+import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
+import MyFace from '../../images/MyFace.jpg';
+import JSIcon from '../../images/SkillsSetIcons/JSIcon.svg';
+import ReactIcon from '../../images/SkillsSetIcons/ReactIcon.svg';
+import ReduxIcon from '../../images/SkillsSetIcons/ReduxIcon.svg';
+import MySqlIcon from '../../images/SkillsSetIcons/MySqlIcon.svg';
+import NodeIcon from '../../images/SkillsSetIcons/NodeIcon.svg';
+import AdobeXDIcon from '../../images/SkillsSetIcons/AdobeXDIcon.svg';
+import MyResumePdf from '../../documents/Hasham_Alam_Resume.pdf';
 
 class AboutScreen extends Component {
   render() {

@@ -7,8 +7,5 @@
   },
   "keywords": [],
   "author": "Hasham Alam",
-  "license": "MIT",
-  "dependencies": {
-    "prettier": "^1.16.4"
-  }
+  "license": "MIT"
 }
