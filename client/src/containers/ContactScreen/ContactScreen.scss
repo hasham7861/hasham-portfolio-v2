@@ -1,24 +1,30 @@
-.ContactScreen{
-  padding-top: 30px;
-}
+@import '../../colors.scss';
 
-.ContactScreen h5{
-  margin-right: 50%;
-  margin-bottom: 50px;
+.ContactScreen{
+  padding-top: 40px;
+  h3{
+    font-size: 27px;
+  }
+  img{
+    width: 50px;
+    margin: 0 5px;
+    border: 2px solid $navbarColor;
+    border-radius: 100%;
+  }
 }
 
 input, textarea, button{
   display: block;
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 15px;
+  border:1px solid $navbarColor;
+  border-radius: 20px;
   background-color: #A19898;
   font-family:'Montserrat', sans-serif;
 }
 
 input:focus, textarea:focus, button:hover{
   background: white;
-  border-radius: 10px;
   color:#A19898;
 }
 
@@ -27,14 +33,21 @@ input::placeholder, textarea::placeholder{
 }
 
 textarea{
-  height: 15em;
+  height: 8em;
   resize: none;
 }
 
 button{
   margin: 15px 20%;
-  padding: 5px;
+  margin-bottom: 0;
+  padding: 10px;
   color: white;
+  background-color: Transparent;
+  border: 0.5px solid #ccc;
+  border-radius: 20px;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
 
 button:hover{
@@ -55,8 +68,7 @@ button:active{
 form{
   display: flex;
   flex-direction: column;
-  margin: 3.5em 15%;
-  margin-bottom: 0;
+  margin: 0 15%;
 }
 
 a:hover{

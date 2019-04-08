@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { saveEmail, saveSubject, saveMessage, clearEmailForm } from "../../store/actions/actions";
-import './ContactScreen.css';
+import './ContactScreen.scss';
 import axios from 'axios';
 import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
+import GithubIcon from '../../images/SocialMediaIcons/GithubIcon.svg';
+import LinkedinIcon from '../../images/SocialMediaIcons/LinkedinIcon.svg';
 
 
 class ContactScreen extends Component {
@@ -17,7 +19,7 @@ class ContactScreen extends Component {
     if(email!=="" && subject !=="" && message!==""){
       axios.post(endPoint,{ email, subject, message }).then(res => {
         console.log(res.data[0]['Message']);
-      });
+      }).catch((err)=>(console.log(err)));
       alert("Email is sent");
       this.props.clearEmailForm();
     }
@@ -57,8 +59,10 @@ class ContactScreen extends Component {
               </form>
               <h3>Follow me Here</h3>
               <div className="contactBar">
-                <a href="https://github.com/hasham7861" target="_blank" rel="noopener noreferrer">Github</a>
-                <a href="https://www.linkedin.com/in/hasham7861/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+                <a href="https://github.com/hasham7861" target="_blank" rel="noopener noreferrer">
+                  <img src={GithubIcon} alt="Github Icon"/>
+                </a>
+                <a href="https://www.linkedin.com/in/hasham7861/" target="_blank" rel="noopener noreferrer"><img src={LinkedinIcon} alt="Linkedin Icon"/></a>
               </div>
         </div>
         </>
