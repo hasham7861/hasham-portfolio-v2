@@ -4,47 +4,56 @@ $break-large:700px;
 
 
 .Home{
-    display: inline-block;
-    vertical-align: middle;
     
     color:white;
     .DesktopViewHome{
+        
         .DesktopScreenSizeError{
-            display: block;
+            display: flex;
+            align-items: center;
             border-radius: 15px;
             border: 20px solid $navbarColor;
-            border-image: url('./images/DesktopResizeBorderImage.png') 34% repeat;
-            padding: 10px;
+            border-image: url('./images/DesktopResizeBorderImage.png') 100% repeat;
             margin: 30px;
         }
 
-        .DesktopScreen{
-            display: none;
-        }
-        .SideNavbar{
-            display: none;
-        }
+        
     }
     @media screen and (min-width: $break-large){
         .DesktopViewHome{
-            display:grid;
-            grid-template-columns: auto auto;
+            background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
+            background-size: cover;      
             .DesktopScreenSizeError{
                 display:none;  
             }
-            .SideNavbar{
-                display: inline;
-                // grid-column-start: 1;
-                // grid-column-end: 3;
-            }
-         
+    
             .DesktopScreen{
-                display: inherit; 
-                // position: relative;  
-                padding: 0;
-                
+                display: grid;
+                grid-template-areas:"sidebar content";
+                grid-auto-columns: auto 80%;
+                height:100vh;
+               
+                .Sidebar{
+                    grid-area: sidebar;  
+                    width:auto;
+                    // margin:10px;
+                }
+                .Content{      
+                    grid-area: content;
+                    // margin-bottom:100px;
+                    display: flex;     
+                    // left:px;
+                    justify-content: center;
+                    margin: 100px 100px;
+                    margin-top:0;
+                    margin-left:0;
+                    align-items: center;  
+                    overflow:hidden;     
+                    // background-color:white;
+                   
+                    // background-size: 1000px 1000px;       
+                }
             }
-           
         }
-       }
+    }
 }

@@ -16,16 +16,18 @@ class Home extends Component {
     return (
       <div className="Home">
         <BrowserView viewClassName="DesktopViewHome">
-          <SideNavbar />
           <div className="DesktopScreen">
-            <Heading />
+            <SideNavbar className="SideBar" />
+            <div className="Content">
+              <Heading classNames={this.props.headerClassNames} />
+            </div>
           </div>
-          <div className="DesktopScreenSizeError">
+          {/*  <div className="DesktopScreenSizeError">
             <h2>
               Please enlarge the browser width and height to fullscreen in-order
               to view my website
             </h2>
-          </div>
+          </div> */}
         </BrowserView>
 
         <MobileView>

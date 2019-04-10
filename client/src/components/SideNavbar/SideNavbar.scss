@@ -1,16 +1,46 @@
 @import '../../colors.scss';
 
 .SideNavbar{
-    position: absolute;
-    left:0;
-    width:27%;
-    height: 100vh;
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    display: flex;
+    box-shadow: 0px 3px 30px 2px black;  
     background-color:$sideNavbarColor;
+    padding-bottom:100px;
     a{
-        // flex-grow: 1;
-        display: block;
+        padding:10px;
+        position: relative;
+        float:left;
+        display: flex;
+        align-items: center;
+        padding: 0 80px;
+        font-size:1.7em;
+        text-decoration: none;
+        margin-block-end: 10px;
+        text-shadow: 2px 4px 10px black;
+        &:hover{
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background-color: $backgroundColor;
+            // color:black;
+            width:60%;;
+        }
+        
+    }
+    img{
+        margin: 0 10px;
+        width:30px;
+    }
+
+    .navlinkSelected{
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: $navbarColor;
+        width:60%;       
+        
     }
 }
+
