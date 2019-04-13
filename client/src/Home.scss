@@ -6,54 +6,38 @@ $break-large:700px;
 .Home{
     
     color:white;
-    .DesktopViewHome{
-        
-        .DesktopScreenSizeError{
-            display: flex;
-            align-items: center;
-            border-radius: 15px;
-            border: 20px solid $navbarColor;
-            border-image: url('./images/DesktopResizeBorderImage.png') 100% repeat;
-            margin: 30px;
-        }
+    height:100vh;
 
+    @media screen and (min-width: $break-large){
+       
+    }
+}
+
+
+.DesktopScreen{
+    display: grid;
+    grid-template-areas:"sidebar content";
+    grid-auto-columns: auto 85%;
+    background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
+    background-size: cover;      
+  
+    
+    .Sidebar{
+        grid-area: sidebar;  
+        width:auto;
         
     }
-    @media screen and (min-width: $break-large){
-        .DesktopViewHome{
-            background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
-            background-size: cover;      
-            .DesktopScreenSizeError{
-                display:none;  
-            }
+    .Content{      
+        
+        grid-area: content;
     
-            .DesktopScreen{
-                display: grid;
-                grid-template-areas:"sidebar content";
-                grid-auto-columns: auto 80%;
-                height:100vh;
+        display: flex;     
+       
+        justify-content: center;
+       
+       
+        align-items: center;  
+        overflow:hidden;     
                
-                .Sidebar{
-                    grid-area: sidebar;  
-                    width:auto;
-                    // margin:10px;
-                }
-                .Content{      
-                    grid-area: content;
-                    // margin-bottom:100px;
-                    display: flex;     
-                    // left:px;
-                    justify-content: center;
-                    margin: 100px 100px;
-                    margin-top:0;
-                    margin-left:0;
-                    align-items: center;  
-                    overflow:hidden;     
-                    // background-color:white;
-                   
-                    // background-size: 1000px 1000px;       
-                }
-            }
-        }
     }
 }

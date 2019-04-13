@@ -8,19 +8,19 @@ import PortfolioIcon from '../../images/PortfolioIcon.svg';
 
 const SideNavbar = () => (
   <div className="SideNavbar">
-    <NavLink to="/" activeClassName="navlinkSelected">
+    <NavLink to="/" activeClassName="navlinkSelected" exact>
       <img src={HomeIcon} alt="Home Icon" />
       <p>Home</p>
     </NavLink>
-    <NavLink to="/about" activeClassName="navlinkSelected">
+    <NavLink to="/about" activeClassName="navlinkSelected" exact>
       <img src={AboutIcon} alt="About Icon" />
       <p>About</p>
     </NavLink>
-    <NavLink to="/portfolio" activeClassName="navlinkSelected">
+    <NavLink to="/portfolio" activeClassName="navlinkSelected" exact>
       <img src={PortfolioIcon} alt="Portfolio Icon" />
       <p>Portfolio</p>
     </NavLink>
-    <NavLink to="/contact" activeClassName="navlinkSelected">
+    <NavLink to="/contact" activeClassName="navlinkSelected" exact>
       <img src={ContactIcon} alt="Contact Icon" /> <p>Contact</p>
     </NavLink>
   </div>

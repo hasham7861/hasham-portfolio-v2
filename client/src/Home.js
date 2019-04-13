@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from 'react-device-detect';
 import './Home.scss';
 import { connect } from 'react-redux';
 import Heading from './components/Heading/Heading';
@@ -14,26 +19,18 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
-        <BrowserView viewClassName="DesktopViewHome">
-          <div className="DesktopScreen">
-            <SideNavbar className="SideBar" />
-            <div className="Content">
-              <Heading classNames={this.props.headerClassNames} />
-            </div>
-          </div>
-          {/*  <div className="DesktopScreenSizeError">
-            <h2>
-              Please enlarge the browser width and height to fullscreen in-order
-              to view my website
-            </h2>
-          </div> */}
+      <div className={`Home ${isBrowser ? 'DesktopScreen' : ''}`}>
+        <BrowserView>
+          <SideNavbar className="SideBar" />
         </BrowserView>
-
+        <div
+          className={isBrowser ? 'Content' : ''}
+          // style={this.props.headerStyle}
+          ref={this.headingRef}
+        >
+          <Heading classNames={this.props.headerClassNames} />
+        </div>
         <MobileView>
-          <div style={this.props.headerStyle} ref={this.headingRef}>
-            <Heading classNames={this.props.headerClassNames} />
-          </div>
           <div ref={this.contactButtonRef}>
             <HomeNavBar />
           </div>

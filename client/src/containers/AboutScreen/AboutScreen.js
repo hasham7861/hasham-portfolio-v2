@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { isMobile } from 'react-device-detect';
 import './AboutScreen.scss';
 import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
+import SideNavbar from '../../components/SideNavbar/SideNavbar';
 import MyFace from '../../images/MyFace.jpg';
 import JSIcon from '../../images/SkillsSetIcons/JSIcon.svg';
 import ReactIcon from '../../images/SkillsSetIcons/ReactIcon.svg';
@@ -14,7 +16,7 @@ class AboutScreen extends Component {
   render() {
     return (
       <>
-        <PagesNavbar />
+        {isMobile ? <PagesNavbar /> : <SideNavbar />}
         <div className="AboutScreen">
           <div className="MyFace">
             <img src={MyFace} alt="My Face" />
