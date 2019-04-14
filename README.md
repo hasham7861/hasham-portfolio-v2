@@ -4,7 +4,7 @@
 Redesgining the whole website and automating the portfolio section <br>
 
 #### Notes:
-1.<del>Redesgined Website (Front-end)</del><br>
+1. <del>Redesgined Website (Front-end).</del><br>
 2. Portfolio Automation (Back-end).<br>
 3. Create Custom System Architecture on Amazon Servers (Dev-ops).<br>
 
