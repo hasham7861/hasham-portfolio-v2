@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import './Projects.scss';
 import Project from '../../components/Project/Project';
 
-class Projects extends Component {
+class ProjectsData extends Component {
   state = {
     // Random Project Names
     projects: [
@@ -39,29 +39,6 @@ class Projects extends Component {
       projects,
     });
   }
-
-  render() {
-    return (
-      <div className="ProjectsBackDrop" style={this.props.style}>
-        <div className="ProjectsContainer">
-          <ul>
-            {this.state.projects.map((project, index) => (
-              <li key={index}>{project}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
-  }
 }
 
-const mapStateToProps = state => ({
-  style: state.projects.style,
-});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Projects);
+export default ProjectsData;

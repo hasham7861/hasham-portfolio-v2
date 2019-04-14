@@ -1,1 +1,21 @@
 @import '../../StyleConstants.scss';
+
+
+.PortfolioContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overscroll-behavior: none;
+    overflow: hidden;
+    .Project{
+        margin:10px;
+    }
+    a{
+       text-decoration: none;
+    }
+    li{
+        display: inline-block;
+    }
+
+}

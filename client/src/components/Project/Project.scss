@@ -1,3 +1,5 @@
+@import '../../StyleConstants.scss';
+
 .Project {
     background-color:#4E3535;
     height: 100px;
@@ -5,6 +7,21 @@
     padding: 10px 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+    &:hover{
+        background-color:$navbarColor;
+    }
+    &:active{
+        @keyframes ButtonPress {
+            from { transform: translate3d(0, 0, 0); }
+            to   { transform: translate3d(0, 3px, 0); }
+          }
+          
+    
+        animation: ButtonPress 0.5s;
+        box-shadow: 5px 5px $navbarColor;
+        background-color:rgb(105, 56, 56);
+          
+    }
     p{
         line-height: 20px;
         font-size:13px;

@@ -1,0 +1,47 @@
+@import '../../StyleConstants.scss';
+.heading{
+  padding-top:100px;
+  color:white;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 2px 4px 10px black;
+  h1{
+    margin: 0;
+    line-height: 1.2em;
+    font-size: 14vw;
+    
+  }
+
+  h3{
+    font-size: 4vw;
+  }
+  
+}
+
+.expandPortfolio{
+    padding-top: 10px;
+    h1{
+      font-size: 11vw;
+      display: inline;
+      margin: 0 5px;
+      text-transform: uppercase;
+    }
+    h3{
+      font-size: 3.8vw;
+    }
+}
+
+
+@media screen and (min-width: $break-large){
+  .heading{
+    position: relative;
+    right: 50px;
+  }
+  .heading h1{
+    font-size: 6em;
+    line-height:  1em;
+  }
+  .heading h3{
+    font-size: 2vw;
+  }
+}

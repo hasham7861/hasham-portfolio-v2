@@ -1,5 +1,5 @@
 import React from 'react';
-import './Heading.css';
+import './Heading.scss';
 
 const Heading = props => (
   <div ref={props.reference} className={props.classNames}>

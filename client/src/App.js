@@ -4,7 +4,6 @@ import { BrowserView, isBrowser } from 'react-device-detect';
 import './App.scss';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
 import HomeScreen from './containers/HomeScreen/HomeScreen';
-import './components/Heading/Heading.css';
 import InvalidRoute from './components/InvalidRoute/InvalidRoute';
 import ProjectScreen from './containers/ProjectScreen/ProjectScreen';
 import AboutScreen from './containers/AboutScreen/AboutScreen';

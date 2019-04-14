@@ -9,6 +9,13 @@
   border-top-right-radius: 10px;
   bottom:0;
   overflow: scroll;
+
+  @media screen and (min-width: $break-large){
+      position: flex;
+      height:100px;   
+    
+    
+  }
   
   .ProjectLink {
     // -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
@@ -22,3 +29,5 @@
 .ProjectsContainer{
   margin: 20px;
 }
+
+
