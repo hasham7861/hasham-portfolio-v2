@@ -4,6 +4,7 @@
 1. <del>Redesgined Website (Front-end).</del><br>
 2. Portfolio Automation (Back-end).<br>
 3. Create Custom System Architecture on Amazon Servers (Dev-ops).<br>
+4. Work on optimizing the code.
 
 #### Technology:
 1. Front-end - React, Sass, AdobeXd, and Photoshop
