@@ -1,4 +1,6 @@
 @import '../../colors.scss';
+$break-small: 500px;
+$break-large:700px;
 
 .SideNavbar{
     display: flex;
@@ -6,49 +8,41 @@
     justify-content: center;
     align-items: center;
     border-top-right-radius: 50px;
-    // border-bottom-right-radius: 50px;
     box-shadow: 0px 3px 30px 2px black;  
     background-color:$sideNavbarColor;
-       
-    // padding-bottom:100px;
     height:100vh;
     a{  
-        flex-grow:1;
-        // padding:10px;
+        line-height:30px;
+        
         position: relative;
-        // bottom:100px;
+        
         flex-direction: column;
         float:left;
         display: flex;
         align-items: center;
-        // margin: 0 50px;
-        padding: 40px 60px;
-        padding-bottom:0;
-        font-size:1.7em;
+        
+        padding: 24px 60px;
+        // padding-bottom:0;
+        font-size:1.2em;
         text-decoration: none;
         text-shadow: 2px 4px 10px black;
         &:hover{
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
             background-color: $backgroundColor;
-            // color:black;
             width:70%;
-            // width:fit-content;
         }
 
     }
     img{
-        // justify-content:flex-start;
-        // position: relative;
+        
         float:left;
-        flex-grow: 1;
-        // margin: 0 10px;
         margin-top:0;
         width:40px;
-        // height:60px;
+       
     }
     p{
-        flex-grow:2;
+      
         float:left;
     }
     .navlinkSelected{
@@ -58,12 +52,43 @@
         width:70%;        
     }
 
-    .MyLogo{
-        // display: flex;
-        position: absolute;
-        top:10px;
-        left:10px;
-        width:30%;
+
+    @media screen and (max-width: $break-large){
+       
+        flex-direction: row;
+        height:50px;
+        padding:10px 0 ;
+        border-top-right-radius: 0;
+        img{
+            width:20px;
+        }
+        a{
+            font-size: 0.7em;
+            padding: 0 20px;
+            padding-bottom:0;
+            line-height:10px;
+            padding: 10px 20px;
+            
+            &:hover{
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 15px;
+                border-bottom-left-radius: 15px;
+                background-color: $backgroundColor;
+                width:20%;
+                
+               
+            }
+            
+        }
+
+        .navlinkSelected{
+            position: relative;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            background-color: $navbarColor;  
+            width:20%;
+        }
     }
 }
 

@@ -16,7 +16,7 @@ class AboutScreen extends Component {
   render() {
     return (
       <>
-        {isMobile ? <PagesNavbar /> : <SideNavbar />}
+        {isMobile ? <PagesNavbar /> : ''}
         <div className="AboutScreen">
           <div className="MyFace">
             <img src={MyFace} alt="My Face" />

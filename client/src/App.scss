@@ -31,4 +31,40 @@ button:focus {
 
 
 
+.DesktopScreen{
+  display: grid;
+  grid-template-areas:"sidebar content";
+  grid-auto-columns: 15% 85%;
+  background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
+  background-size: cover;      
 
+  
+  .Sidebar{
+      grid-area: sidebar;  
+      
+  }
+  .Content{      
+      
+      grid-area: content;
+  
+      display: flex;     
+     
+      justify-content: center;
+     
+     
+      align-items: center;  
+      overflow:hidden;     
+             
+  }
+}
+
+
+@media screen and (max-width: $break-large){
+  .DesktopScreen{
+    display: block;
+    background: url('./images/HomeBackground.jpg') no-repeat center bottom; 
+    background-size: cover;   
+    height:100vh;   
+  }
+  
+}

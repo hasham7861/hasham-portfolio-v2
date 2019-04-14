@@ -6,38 +6,10 @@ $break-large:700px;
 .Home{
     
     color:white;
-    height:100vh;
+    height:auto;
 
     @media screen and (min-width: $break-large){
        
     }
 }
 
-
-.DesktopScreen{
-    display: grid;
-    grid-template-areas:"sidebar content";
-    grid-auto-columns: auto 85%;
-    background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
-    background-size: cover;      
-  
-    
-    .Sidebar{
-        grid-area: sidebar;  
-        width:auto;
-        
-    }
-    .Content{      
-        
-        grid-area: content;
-    
-        display: flex;     
-       
-        justify-content: center;
-       
-       
-        align-items: center;  
-        overflow:hidden;     
-               
-    }
-}

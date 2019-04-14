@@ -19,17 +19,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div className={`Home ${isBrowser ? 'DesktopScreen' : ''}`}>
-        <BrowserView>
-          <SideNavbar className="SideBar" />
-        </BrowserView>
-        <div
+      <div className="Home">
+        {/* <div
           className={isBrowser ? 'Content' : ''}
           // style={this.props.headerStyle}
           ref={this.headingRef}
-        >
-          <Heading classNames={this.props.headerClassNames} />
-        </div>
+        > */}
+        <Heading classNames={this.props.headerClassNames} />
         <MobileView>
           <div ref={this.contactButtonRef}>
             <HomeNavBar />
