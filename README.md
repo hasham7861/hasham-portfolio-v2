@@ -1,10 +1,10 @@
 # How to use the App ?
 #### Notes:
-1.<del>Redesgined Website (Front-end)</del>
-2. Portfolio Automation (Back-end).
-3. Create Custom System Architecture on Amazon Servers (Dev-ops).
+1.<del>Redesgined Website (Front-end)</del><br>
+2. Portfolio Automation (Back-end).<br>
+3. Create Custom System Architecture on Amazon Servers (Dev-ops).<br>
 
-### Want to use my web app?
+#### Want to use my web app?
 1. Must have npm installed on system.
 2. Type the following commands inside of terminal of root directory.
 
