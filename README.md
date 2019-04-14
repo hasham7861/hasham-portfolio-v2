@@ -1,6 +1,6 @@
 # How to use the App ?
 #### Notes:
-~~1. Redesgined Website (Front-end)~~.
+1.<del>Redesgined Website (Front-end)</del>
 2. Portfolio Automation (Back-end).
 3. Create Custom System Architecture on Amazon Servers (Dev-ops).
 
