@@ -1,4 +1,8 @@
-# How to use the App ?
+# Information on my PersonalWebsiteV2 ?
+
+#### Goal:
+Redesgining the whole website and automating the portfolio section <br>
+
 #### Notes:
 1.<del>Redesgined Website (Front-end)</del><br>
 2. Portfolio Automation (Back-end).<br>
