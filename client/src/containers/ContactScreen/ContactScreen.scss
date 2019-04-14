@@ -69,6 +69,11 @@ form{
   display: flex;
   flex-direction: column;
   margin: 0 15%;
+  @media screen and (min-width: $break-large){
+
+    margin: 0 20%;
+  }
+
 }
 
 a:hover{
