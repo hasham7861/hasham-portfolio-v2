@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from 'react-device-detect';
-import './Home.scss';
+import { MobileView } from 'react-device-detect';
+import './HomeScreen.scss';
 import { connect } from 'react-redux';
-import Heading from './components/Heading/Heading';
-import Portfolio from './containers/Portfolio/Portfolio';
-import HomeNavBar from './components/HomeNavBar/HomeNavBar';
-import SideNavbar from './components/SideNavbar/SideNavbar';
+import Heading from '../../components/Heading/Heading';
+import Portfolio from '../Portfolio/Portfolio';
+import HomeNavBar from '../../components/HomeNavBar/HomeNavBar';
 
-class Home extends Component {
+class HomeScreen extends Component {
   headingRef = React.createRef();
 
   contactButtonRef = React.createRef();
@@ -20,11 +14,6 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        {/* <div
-          className={isBrowser ? 'Content' : ''}
-          // style={this.props.headerStyle}
-          ref={this.headingRef}
-        > */}
         <Heading classNames={this.props.headerClassNames} />
         <MobileView>
           <div ref={this.contactButtonRef}>
@@ -45,4 +34,4 @@ const mapStateToProps = state => ({
   headerClassNames: state.headerStateChange.classNames,
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(HomeScreen);

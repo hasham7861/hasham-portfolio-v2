@@ -1,7 +1,4 @@
-@import "./colors.scss";
-$break-small: 500px;
-$break-large:700px;
-
+@import './StyleConstants.scss';
 .App{
   background-color: $backgroundColor;
   font-family: 'Montserrat', sans-serif;
