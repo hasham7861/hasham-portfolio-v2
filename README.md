@@ -8,7 +8,7 @@
 
 #### Technology:
 1. Front-end - React, Sass, AdobeXd, and Photoshop
-2. Back-end - Node, Express, MySQl, AWS
+2. Back-end - Node, Express, MySQL, AWS
 
 #### Want to use my web app?
 1. Must have npm installed on system.
