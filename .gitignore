@@ -4,3 +4,4 @@
 /.vs
 /.vscode
 /client/build
+/server/.env
