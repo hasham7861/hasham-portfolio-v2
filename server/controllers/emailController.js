@@ -29,14 +29,22 @@ class emailController{
             }
             });
 
-            const message = "--- Message from your SMTP Server --- \n\n" + 
-                            "ReplyTo: " + this.email + "\n\nMessage: " + this.message;
+          
+            const htmlMessage = "<div style='display:inline-block;" +
+                                "color: white; background-color:brown; " +
+                                "padding:40px; border-radius:10px;'> " +
+                                    "<h1>Message From Personal Website</h1>"  +
+                                    "<p>Reply To: " + this.email + "</p>" +
+                                    "<p>Subject: " + this.subject + "</p>" +
+                                    "<p>Message: " + this.message +"</p>" +
+                                "</div>" 
+                                ;
 
             const mailOptions = {
                 to:"hasham.alam@hotmail.com",
                 replyTo: this.email,
                 subject: this.subject, // Subject line
-                text: message
+                html: htmlMessage
             }
 
             // Send mail with defined transport object

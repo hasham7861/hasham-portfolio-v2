@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "react-device-detect": "^1.6.2",
     "react-dom": "^16.7.0",
@@ -29,6 +30,11 @@
       "react-app",
       "prettier",
       "prettier/react"
+    ],
+    "overrides": [
+      "rules": {
+        "react/prop-types": 0
+      }
     ]
   },
   "browserslist": [

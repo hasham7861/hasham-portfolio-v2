@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './ContactScreen.scss';
 import { isMobile } from 'react-device-detect';
 import axios from 'axios';
@@ -17,18 +18,27 @@ class ContactScreen extends Component {
   sendMessage = event => {
     event.preventDefault(); // prevent the page from refreshing everytime
     const { email, subject, message } = this.props.emailMessage;
+    const validEmailAddr =
+      '^([a-zA-Z0-9_-.]+)@([a-zA-Z0-9_-.]+).([a-zA-Z]{2,5})$';
 
-    const endPoint = '/messaged';
+    const endPoint = '/routes/email';
 
     if (email !== '' && subject !== '' && message !== '') {
-      axios
-        .post(endPoint, { email, subject, message })
-        .then(res => {
-          console.log(res.data[0].Message);
-        })
-        .catch(err => console.log(err));
-      alert('Email is sent');
-      this.props.clearEmailForm();
+      if (validEmailAddr.match(email)) {
+        axios
+          .post(endPoint, { email, subject, message })
+          .then(res => {
+            // console.log(res.data[0].Message);
+            alert('Email is sent');
+            this.props.clearEmailForm();
+          })
+          .catch(err => {
+            console.log(err);
+            alert('Email not sent');
+          });
+      } else {
+        alert('Enter in a valid email');
+      }
     } else {
       alert('Email form is not completed');
     }
@@ -36,7 +46,6 @@ class ContactScreen extends Component {
 
   render() {
     return (
-      // TODO: Get rid of the extra router here and the ugly code
       <>
         {isMobile ? <PagesNavbar /> : ''}
         <div className="ContactScreen">
@@ -60,7 +69,7 @@ class ContactScreen extends Component {
               onChange={this.props.messageOnChange}
               name="message"
               placeholder="Enter in your Message.. "
-              value={this.props.emailMessage.messageOnChange}
+              value={this.props.emailMessage.message}
             />
             <button type="submit">Send Message</button>
           </form>
