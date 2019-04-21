@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import './ContactScreen.scss';
 import { isMobile } from 'react-device-detect';
 import axios from 'axios';
@@ -21,7 +20,7 @@ class ContactScreen extends Component {
     const validEmailAddr =
       '^([a-zA-Z0-9_-.]+)@([a-zA-Z0-9_-.]+).([a-zA-Z]{2,5})$';
 
-    const endPoint = '/routes/email';
+    const endPoint = 'https://api.hashamalam.dev/routes/email';
 
     if (email !== '' && subject !== '' && message !== '') {
       if (validEmailAddr.match(email)) {
