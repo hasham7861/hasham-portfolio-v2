@@ -31,11 +31,11 @@
       "prettier",
       "prettier/react"
     ],
-    "overrides": [
+    "overrides": {
       "rules": {
         "react/prop-types": 0
       }
-    ]
+    }
   },
   "browserslist": [
     ">0.2%",
