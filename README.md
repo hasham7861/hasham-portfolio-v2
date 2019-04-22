@@ -11,6 +11,7 @@
 2. Back-end - Node, Express, MySQL, AWS
 
 #### Want to use my web app?
+Once you have the envirnoment keys you can use my app
 1. Must have npm installed on system.
 2. Type the following commands inside of terminal of root directory.
 
