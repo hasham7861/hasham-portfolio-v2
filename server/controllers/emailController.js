@@ -59,4 +59,4 @@ class emailController{
 }
 
 
-export default emailController;
+module.exports= emailController;

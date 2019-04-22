@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Redirect} from 'react-router-dom';
 const InvalidRoute = () => (
   <div>
     <h1
@@ -10,7 +10,7 @@ const InvalidRoute = () => (
         height: '100vh',
       }}
     >
-      Invalid Route
+      <Redirect push to="/"/>
     </h1>
   </div>
 );

@@ -17,15 +17,17 @@ class ContactScreen extends Component {
   sendMessage = event => {
     event.preventDefault(); // prevent the page from refreshing everytime
     const { email, subject, message } = this.props.emailMessage;
-    const validEmailAddr =
-      '^([a-zA-Z0-9_-.]+)@([a-zA-Z0-9_-.]+).([a-zA-Z]{2,5})$';
+    const validEmailAddr = new RegExp(
+      '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$'
+    );
 
-    const endPoint = 'https://api.hashamalam.dev/routes/email';
+    // const endPoint = 'https://api.hashamalam.dev/routes/email';
+    const endPoint = 'http://localhost:5000/routes/email';
 
     if (email !== '' && subject !== '' && message !== '') {
-      if (validEmailAddr.match(email)) {
-        axios
-          .post(endPoint, { email, subject, message })
+      if (validEmailAddr.test(email)) {
+        // console.log("Valid Email");
+        axios.post(endPoint, { email, subject, message })
           .then(res => {
             // console.log(res.data[0].Message);
             alert('Email is sent');

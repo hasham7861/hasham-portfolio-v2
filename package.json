@@ -1,11 +1,23 @@
 {
-  "name": "WebsiteV4",
+  "name": "websitev4",
   "version": "1.0.0",
   "scripts": {
-    "install": "cd ./server && npm run client-install && npm install && cd ..",
+    "install": "cd ./server && concurrently \"npm:client-install\" \"npm install\" && cd ..",
     "start": "cd ./server && npm run dev"
   },
   "keywords": [],
   "author": "Hasham Alam",
-  "license": "MIT"
+  "description": "Personal Website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasham7861/PersonalWebsiteV2.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasham7861/PersonalWebsiteV2/issues"
+  },
+  "homepage": "https://github.com/hasham7861/PersonalWebsiteV2#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
 }
