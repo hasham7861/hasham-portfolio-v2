@@ -30,10 +30,9 @@ app.use('/', indexRouter);
 app.use('/routes',email);
 
 // Send a message if the endpoint does not exist
-app.use(function(req, res, next) {
+app.use(function(req, res) {
   if (!req.route)
-       res.json({"message": "Enter in a valid endpoint"})
-  next();    
+       res.json({"message": "Enter in a valid endpoint"});
 });
 
 module.exports = app;

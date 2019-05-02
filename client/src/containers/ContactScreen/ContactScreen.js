@@ -21,8 +21,8 @@ class ContactScreen extends Component {
       '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$'
     );
 
-    // const endPoint = 'https://api.hashamalam.dev/routes/email';
-    const endPoint = 'http://localhost:5000/routes/email';
+    const endPoint = 'https://api.hashamalam.dev/routes/email';
+    // const endPoint = 'http://localhost:5000/routes/email';
 
     if (email !== '' && subject !== '' && message !== '') {
       if (validEmailAddr.test(email)) {
