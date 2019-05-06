@@ -6,7 +6,7 @@ import './PortfolioScreen.scss';
 
 class PortfolioScreen extends Component {
   state = {
-    // Random Project Names
+    // Hardcoded Project Names
     projects: [],
     projectsData: [
       {
@@ -40,37 +40,24 @@ class PortfolioScreen extends Component {
 
     for (let i = 0; i < this.state.projectsData.length; i++) {
       let project = this.state.projectsData[i];
-
       const projectRoute = `/project/${project.projectName}`;
-      console.log(projectRoute);
-
-      /* Store this in the redux store and use it on projectscreen page.
-         
-        */
-      const newProjectState = {
-        style: {
-          height: '70px',
-        },
-        projectData: {
+      
+      const projectData =  {
           projectName: project.projectName,
           projectDesc: project.projectDesc,
           numOfFavorites: project.numOfFavorites,
           languages: project.languages,
           srcLink: project.srcLink
-        }
-      }
+      };
+      
 
       // Change project screen data based on the clicked project
-      let changeProjectData = (newProjectState) => {
-        // this.props.changeProjectData(newProjectState);
-
-        localStorage.setItem('projectData', JSON.stringify(newProjectState.projectData));
-
+      let changeProjectData = (projectData) => {
+        localStorage.setItem('projectData', JSON.stringify(projectData));
       }
 
-
       const projectJSX = (
-        <NavLink className="ProjectLink" to={projectRoute} onClick={() => changeProjectData(newProjectState)}>
+        <NavLink className="ProjectLink" to={projectRoute} onClick={() => changeProjectData(projectData)}>
           <Project name={project.projectName} about={project.projectDesc} />
         </NavLink >
       );

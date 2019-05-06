@@ -13,7 +13,6 @@ const projects = (state = intialProjectsDivSite, action) => {
         style: {
           height: action.portfolioState.style.height,
         },
-        projectData:state.portfolioState.projectData
       });
 
     default:
