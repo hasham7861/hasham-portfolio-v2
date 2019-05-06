@@ -24,7 +24,7 @@ class App extends Component {
               <Route path="/about" exact component={AboutScreen} />
               <Route path="/contact" exact component={ContactScreen} />
               <Route path="/portfolio" exact component={PortfolioScreen} />
-              <Route path="/project/:id/" exact component={ProjectScreen} />
+              <Route path="/project/:name/" exact component={ProjectScreen} />
               <Route component={InvalidRoute} />
             </Switch>
           </div>

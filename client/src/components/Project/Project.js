@@ -3,8 +3,8 @@ import './Project.scss';
 
 const Project = props => (
   <div className="Project">
-    <h4>Project {props.id} </h4>
-    <p>About: This project makes people's life easier</p>
+    <h4>{props.name} </h4>
+    <p>{props.about}</p>
   </div>
 );
 

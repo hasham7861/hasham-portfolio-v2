@@ -2,23 +2,42 @@ import React, { Component } from 'react';
 import { isMobile } from 'react-device-detect';
 import ProjectNavbar from '../../components/ProjectNavbar/ProjectNavbar';
 import './ProjectScreen.scss';
+// import { connect } from 'react-redux';
 
 class ProjectScreen extends Component {
+
   projectName = '';
-
-  projectDescription =
-    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.";
-
-  projectSkillsUsed = 'PHP, Javscript';
-
-  projectContributors = 'Hasham Alam, Jimmy Yang';
+  projectContributors = 'Hasham Alam';
 
   constructor({ props, match }) {
     super(props);
-    this.projectName = match.params.id;
+    this.projectName = match.params.name;
+    this.state ={
+      projectData :{}
+    }
   }
 
+  componentDidMount(){
+    const data = JSON.parse(localStorage.getItem('projectData'));
+    // console.log(data);
+    this.setState(
+      {
+        projectData:{
+          projectName: data.projectName,
+          projectDesc: data.projectDesc,
+          numOfFavorites:data.numOfFavorites,
+          languages:data.languages,
+          srcLink:data.srcLink 
+        },
+      },
+    
+      )
+  }
+  
+
+  // fetch the data from redux and put it in here
   render() {
+   
     return (
       <>
         {isMobile ? <ProjectNavbar projectRoute={this.projectName} /> : ''}
@@ -26,19 +45,19 @@ class ProjectScreen extends Component {
           <h1>{this.projectName}</h1>
           <section className="Description">
             <h3>Description</h3>
-            <p>{this.projectDescription}</p>
+            <p>{this.state.projectData.projectDesc}</p>
           </section>
-          <section className="SkillsUsed">
-            <h3>Skills Used</h3>
-            <p>{this.projectSkillsUsed}</p>
+          <section className="Languages">
+            <h3>Languages(s)</h3>
+            <p>{this.state.projectData.languages}</p>
           </section>
           <section className="Contributors">
-            <h3>Contributors</h3>
-            <p>{this.projectContributors}</p>
+            <h3>Contributor(s)</h3>
+            <p>Hasham Alam</p>
           </section>
           <section>
-            <a href="https://github.com/hasham7861/PersonalWebsite">
-              View Source Code
+            <a href={this.state.projectData.srcLink}>
+              Click here for more details
             </a>
           </section>
         </div>
@@ -46,5 +65,6 @@ class ProjectScreen extends Component {
     );
   }
 }
+
 
 export default ProjectScreen;

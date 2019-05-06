@@ -7,7 +7,7 @@ import {
 	CHANGE_HEADING_SIZE,
 	CLOSE_PORTFOLIO,
 	EXPAND_PORTFOLIO_DIV,
-	RESET_HEADING_SIZE
+	RESET_HEADING_SIZE,
 }	from '../constants/actionTypes';
 
 // The following actions are possible on emailMessage

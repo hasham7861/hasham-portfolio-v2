@@ -1,10 +1,9 @@
-import { EXPAND_PORTFOLIO_DIV } from '../constants/actionTypes';
+import { EXPAND_PORTFOLIO_DIV} from '../constants/actionTypes';
 
 const intialProjectsDivSite = {
   style: {
     height: '70px',
   },
-  projects: [],
 };
 
 const projects = (state = intialProjectsDivSite, action) => {
@@ -14,8 +13,8 @@ const projects = (state = intialProjectsDivSite, action) => {
         style: {
           height: action.portfolioState.style.height,
         },
+        projectData:state.portfolioState.projectData
       });
-    // case ADD_PROJECTS:
 
     default:
       return state;

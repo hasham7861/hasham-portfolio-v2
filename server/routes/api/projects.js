@@ -83,5 +83,11 @@ router.delete('/projects/deleteProject/:id',(req,res)=>{
 
 });
 
+// Fetch Projects From Github's GRAPH QL api for pinned repos
+router.get('/projects/fetchProjects',(req,res)=>{
+    /* Use the data to update each record inside the database, 
+       only if the name match else create a new entry*/
+});
+
 
 module.exports = router;
