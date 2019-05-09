@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan'); // use a logger for the the request being made to app
 var bodyParser = require('body-parser'); // Helps parse HTTP post request
 
+
 var indexRouter = require('./routes/index');
 var email = require('./routes/email');
 var projects = require('./routes/api/projects');
@@ -33,6 +34,8 @@ app.use('/', indexRouter);
 app.use('/routes',email);
 // REST API for projects
 app.use('/api',projects);
+
+
 
 
 

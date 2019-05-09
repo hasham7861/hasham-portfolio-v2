@@ -73,8 +73,6 @@ router.put('/projects/updateProject/:id',(req,res)=>{
     const languages = req.body.languages;
     const srcLink = req.body.srcLink;
 
-    
-
     res.end();
 });
 
