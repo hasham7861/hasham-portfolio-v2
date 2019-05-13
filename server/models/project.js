@@ -1,11 +1,11 @@
 module.exports = function (sequelize, DataTypes){
-    var project = sequelize.define('project',{
+    var Project = sequelize.define('Project',{
         projectName: DataTypes.STRING,
         projectDesc: DataTypes.STRING,
-        NumOfFavorites: DataTypes.DECIMAL,
+        numOfFavorites: DataTypes.INTEGER,
         languages: DataTypes.STRING,
         srcLink: DataTypes.STRING
     });
 
-    return project;
+    return Project;
 };

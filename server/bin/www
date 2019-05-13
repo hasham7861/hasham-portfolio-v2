@@ -8,8 +8,6 @@ var app = require('../app.js');
 var debug = require('debug')('node-express:server');
 var http = require('http');
 
-var db = require('../models');
-
   
 
 /**
@@ -29,9 +27,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-db.sequelize.sync().then(function (){
+// db.sequelize.sync().then(function (){
   server.listen(port);  
-});
+// });
 
 
 server.on('error', onError);

@@ -1,91 +1,60 @@
 const express = require('express');
 const router = express.Router();
-const ProjectsDBConnect = require('../../util/ProjectsDBConnect');
 
+const db = require('../../models');
+db.sequelize.sync().then(function (){
+});
 
 // Projects REST API //
 
 // READ Projects
-router.get('/projects/readProjects',(req,res)=>{
-    
-    const conn = new ProjectsDBConnect().getConnection();
-    if(!conn) res.send({message:"database connection failed"});
-    const queryStr = "select * from projects";
-    conn.query(
-        queryStr,
-        (err,rows)=>{
-            if(err) {
-                console.log("Failed to query for projects: " + err);
-                res.sendStatus(500);
-                return
-            };
-
-            res.send(rows);
-        }        
-    )
- 
+router.get('/projects/all',(req,res)=>{
+    db.Project.findAll({}).then(function (result){
+        res.json(result);
+    });
 })
 
-
 // Add Project
-router.post('/projects/addProject',(req,res)=>{
-
-    
-    const conn = new ProjectsDBConnect().getConnection();
-    if(!conn) res.send({message:"database connection failed"});
-
-    const projectName = req.body.projectName;
-    const projectDesc = req.body.projectDesc;
-    const numOfFavorites = req.body.numOfFavorites;
-    const languages = req.body.languages;
-    const srcLink = req.body.srcLink;
-   
-
-    let queryStr = "INSERT INTO projects(projectName,projectDesc,numOfFavorites,languages,srcLink) VALUES(?,?,?,?,?)";
-
-    conn.query(
-        queryStr,
-        [projectName,projectDesc,numOfFavorites,languages,srcLink],
-        (err,rows) =>{
-            if(err) {
-                console.log("Failed to query for projects: " + err);
-                res.sendStatus(500);
-                return
-            };
-    
-            console.log("Inserted a new user with id:" + rows.insertedId)
-            res.end();
-        }
-    )
+router.post('/projects/new',(req,res)=>{
+    db.Project.create({
+        projectName: req.body.projectName,
+        projectDesc: req.body.projectDesc,
+        numOfFavorites: req.body.numOfFavorites,
+        languages: req.body.languages,
+        srcLink: req.body.srcLink
+    }).then(function (result){
+        res.json(result);
+    });
 });
 
 // Update Project
-router.put('/projects/updateProject/:id',(req,res)=>{
-    
-    const conn = new ProjectsDBConnect().getConnection();
-    if(!conn) res.send({message:"database connection failed"});
+router.put('/projects/update/:id',(req,res)=>{
 
-    const id = req.params.id;
-
-    const projectName = req.body.projectName;
-    const projectDesc = req.body.projectDesc;
-    const numOfFavorites = req.body.numOfFavorites;
-    const languages = req.body.languages;
-    const srcLink = req.body.srcLink;
-
-    res.end();
+    db.Project.update({
+        projectName: req.body.projectName,
+        projectDesc: req.body.projectDesc,
+        numOfFavorites: req.body.numOfFavorites,
+        languages: req.body.languages,
+        srcLink: req.body.srcLink
+    },
+    {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (result){
+        res.json(result);
+    })
 });
 
 // Delete Project
-router.delete('/projects/deleteProject/:id',(req,res)=>{
-
+router.delete('/projects/delete/:id',(req,res)=>{
+    db.Project.destroy({
+        where:{
+            id: req.params.id
+        }
+    }).then(function(result){
+        res.json(result);
+    })
 });
-
-// Fetch Projects From Github's GRAPH QL api for pinned repos
-router.get('/projects/fetchProjects',(req,res)=>{
-    /* Use the data to update each record inside the database, 
-       only if the name match else create a new entry*/
-});
-
 
 module.exports = router;
