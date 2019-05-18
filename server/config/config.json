@@ -1,23 +1,15 @@
 {
-  "development": {
-    "username": "root",
-    "password": "has786",
-    "database": "personalwebsite",
-    "host": "127.0.0.1",
+  "databaseConfig": {
+    "username": "sql9292008",
+    "password": "GeerC4nMVe",
+    "database": "sql9292008",
+    "host": "sql9.freesqldatabase.com",
     "dialect": "mysql"
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": "has786",
-    "database": "personalwebsite",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  "emailServerConfig": {
+    "service": "gmail",
+    "to": "hasham.alam@hotmail.com",
+    "user": "hashamsmtpserver@gmail.com",
+    "pass": "Hasham1234"
   }
 }

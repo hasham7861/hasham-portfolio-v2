@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Hasham\'s Website API', website:'api.hashamalam.dev/' });
-  
+router.get('/', function(req, res) {
+  res.send({"message":"Welcome to Hasham Alam's API"});
 });
 
 module.exports = router;
