@@ -1,9 +1,6 @@
 /server/node_modules
 /client/node_modules
-/siteV4Mockup
-/.vs
-/.vscode
 /client/build
-/server/.env
-node_modules
-serverv*
+/server/config
+/node_modules
+/server/serverv*
