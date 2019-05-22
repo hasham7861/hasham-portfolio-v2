@@ -21,21 +21,18 @@ class ContactScreen extends Component {
       '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$'
     );
 
-    const endPoint = 'https://api.hashamalam.dev/routes/email';
-    // const endPoint = 'http://localhost:5000/routes/email';
+    // const endPoint = 'https://api.hashamalam.dev/email/send';
+    const endPoint = 'http://localhost:5000/email/send';
 
     if (email !== '' && subject !== '' && message !== '') {
       if (validEmailAddr.test(email)) {
-        // console.log("Valid Email");
         axios.post(endPoint, { email, subject, message })
           .then(res => {
-            // console.log(res.data[0].Message);
-            alert('Email is sent');
+            alert(res.data.message);
             this.props.clearEmailForm();
           })
-          .catch(err => {
-            console.log(err);
-            alert('Email not sent');
+          .catch(err => { // incase of endpoint erro
+            alert(err);
           });
       } else {
         alert('Enter in a valid email');

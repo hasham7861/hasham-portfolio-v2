@@ -1,16 +1,21 @@
 const express = require('express'); // Helps Create Middleware easily
 const router = express.Router();
-const emailController = require('../controllers/EmailController.js');
+const EmailController = require('../controllers/EmailController.js');
 
 router.post('/email/send', (req,res) => {
-    if(req.body.email !== "" && req.body.subject !== "" && req.body.message !== ""){
-        const mail = new emailController(req.body.email, req.body.subject,req.body.message);
-        mail.sendEmail();
-        res.send({"status":"email successfully sent"});
-    } else{
-        res.send({"status":"email not sent"});
-    }
-  
+        
+    const mail = new EmailController(req.body.email, 
+                                    req.body.subject,
+                                    req.body.message);
+    mail.sendEmail().then(function (info){
+        res.send({"message":info});
+    }).catch(
+        function(err){
+            res.send({"message":err});
+        }
+    );
+
+   
 });
 
 module.exports = router;

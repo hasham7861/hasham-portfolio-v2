@@ -7,26 +7,25 @@ class ProjectsDatabaseController{
         db.sequelize.sync().then(()=>{}).catch((err)=>console.log("Cannot connect to database" + err));
     }
     // Read all the projects within the database
-    readProjects(req,res){
-        db.Project.findAll({}).then(function (result){
-            res.json(result);
-        });
+    async readProjects(req,res){
+        let result = await db.Project.findAll({});
+        res.json(result);       
     }
     // Create a project in within the database
-    createProject(req,res){
-        db.Project.create({
+    async createProject(req,res){
+        let result = await db.Project.create({
             projectName: req.body.projectName,
             projectDesc: req.body.projectDesc,
             numOfFavorites: req.body.numOfFavorites,
             languages: req.body.languages,
             srcLink: req.body.srcLink
-        }).then(function (result){
-            res.json(result);
         });
+
+        res.json(result); 
     }
     // Update a project within the database
-    updateProject(req,res){
-        db.Project.update({
+    async updateProject(req,res){
+        let result = await db.Project.update({
             projectName: req.body.projectName,
             projectDesc: req.body.projectDesc,
             numOfFavorites: req.body.numOfFavorites,
@@ -37,19 +36,20 @@ class ProjectsDatabaseController{
             where: {
                 id: req.params.id
             }
-        }).then(function (result){
-            res.json(result);
-        })
+        });
+
+       res.json(result);
     }
     // Delete a project within the database
-    deleteProject(req,res){
-        db.Project.destroy({
+    async deleteProject(req,res){
+        let result = await db.Project.destroy({
             where:{
                 id: req.params.id
             }
-        }).then(function(result){
-            res.json(result);
-        })
+        });
+
+        res.json(result);
+        
     }
     
 }
