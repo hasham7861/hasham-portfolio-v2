@@ -1,11 +1,16 @@
 const axios = require('axios');
 
 // Get all the public repos from github
+class GithubDataController {
 
-var repos = axios({
- method:'get',
- url:'https://api.github.com/users/hasham7861/repos',
- responseType:'JSON'
-});
+    async getRepos(req,res){
+        axios.get('https://api.github.com/users/hasham7861/repos')
+        .then(response => {
+           const repos = response.data;
+           res.json(repos)
+            
+        }).catch((err)=>console.log("Github data cannot be retrieve" + err))        
+    }   
+}
 
-console.log(repos);
+module.exports = GithubDataController;

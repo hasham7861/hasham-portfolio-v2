@@ -7,6 +7,7 @@ var bodyParser = require('body-parser'); // Helps parse HTTP post request
 var indexRouter = require('./routes/index');
 var email = require('./routes/email');
 var projects = require('./routes/projects');
+var github  = require('./routes/github');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/',email);
 app.use('/',projects);
+app.use('/',github);
 
 // Route that doesn't exist
 app.use(function(req, res) {
