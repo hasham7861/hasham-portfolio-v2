@@ -1,6 +1,3 @@
-/server/node_modules
 /client/node_modules
 /client/build
-/server/config
 /node_modules
-/server/serverv*
