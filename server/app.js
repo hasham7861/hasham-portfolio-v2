@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // All the routes for the middleware
-app.use('/', indexRouter);
+app.use('/',indexRouter);
 app.use('/',email);
 app.use('/',projects);
 app.use('/',github);
