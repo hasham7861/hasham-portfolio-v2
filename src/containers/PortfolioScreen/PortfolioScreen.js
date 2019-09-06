@@ -12,7 +12,9 @@ class PortfolioScreen extends Component {
     projectsData: []
   };
 
-  async componentDidMount() {
+
+
+  async componentWillMount() {
     // Render the projects and fetch the data here via axios
     // Todo: Load Projects here via api call to github or database
 
@@ -59,6 +61,7 @@ class PortfolioScreen extends Component {
   }
 
   render() {
+
     return (
       <div className="PortfolioScreen">
         <h1>My Pinned Github Portfolio</h1>

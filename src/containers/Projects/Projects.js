@@ -12,7 +12,7 @@ class Projects extends Component {
     projectsData: []
   };
 
-  async componentDidMount() {
+  async componentWillMount() {
 
      //Fetch data from your api
      const res = await axios.get('https://hashamalamapi.herokuapp.com/github/repos')
