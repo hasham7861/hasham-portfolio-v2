@@ -3,48 +3,35 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Projects.scss';
 import Project from '../../components/Project/Project';
+import axios from 'axios';
 
 class Projects extends Component {
   state = {
     // Hardcoded Project Names
     projects: [],
-    projectsData: [
-      {
-        "projectName": "PersonalWebsiteV2",
-        "projectDesc": "Redesigning Personal Website and Automating Portfolio (Prototype)",
-        "numOfFavorites": "1",
-        "languages": "Javascript",
-        "srcLink": "https://github.com/hasham7861/PersonalWebsiteV2"
-      },
-      {
-        "projectName": "LandingPage",
-        "projectDesc": "Created a Landing Page using Sass",
-        "numOfFavorites": "0",
-        "languages": "CSS",
-        "srcLink": "https://github.com/hasham7861/LandingPage"
-      }, {
-        "projectName": "Asteroid-Game",
-        "projectDesc": "Asteroid Game made on canvas using the zim.js framework",
-        "numOfFavorites": "0",
-        "languages": "HTML",
-        "srcLink": "https://github.com/hasham7861/AsteroidGame"
-      }
-    ]
+    projectsData: []
   };
 
-  componentDidMount() {
+  async componentDidMount() {
+
+     //Fetch data from your api
+     const res = await axios.get('https://hashamalamapi.herokuapp.com/github/repos')
+     const projectsData = res.data; 
+     this.setState({projectsData});
+
     const projects = [];
 
     for (let i = 0; i < this.state.projectsData.length; i++) {
       let project = this.state.projectsData[i];
-      const projectRoute = `/project/${project.projectName}`;
+      const projectRoute = `/project/${project.name}`;
       
-      const projectData =  {
-          projectName: project.projectName,
-          projectDesc: project.projectDesc,
-          numOfFavorites: project.numOfFavorites,
-          languages: project.languages,
-          srcLink: project.srcLink
+       // taking only the data that I need
+      let projectData =  {
+          projectName: project.name,
+          projectDesc: project.description,
+          numOfFavorites: project.watchers_count,
+          languages: project.language,
+          srcLink: project.html_url
       };
       
 
@@ -55,7 +42,7 @@ class Projects extends Component {
 
       const projectJSX = (
         <NavLink className="ProjectLink" to={projectRoute} onClick={() => changeProjectData(projectData)}>
-          <Project name={project.projectName} about={project.projectDesc} />
+          <Project name={projectData.projectName} about={projectData.projectDesc} />
         </NavLink >
       );
 
