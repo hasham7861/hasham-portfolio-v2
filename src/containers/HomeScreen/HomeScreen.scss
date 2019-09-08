@@ -1,15 +1,14 @@
 @import '../../StyleConstants.scss';
 .Home{
     .HomeIcon{
-        width: 170px;
+        width:20vw;
     }
-    margin-top:100px;
-    height: 100%;
-    // position: static;
-    // text-align: center;
-
+    padding-top:200px;
     @media screen and (min-width: $break-large){
-       
+        padding-top:100px;
+        .HomeIcon{
+            width: 170px;
+        }
     }
 }
 
