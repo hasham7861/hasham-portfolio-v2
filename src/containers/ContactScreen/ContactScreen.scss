@@ -1,6 +1,16 @@
 @import '../../StyleConstants.scss';
 
 .ContactScreen{
+  .header{
+    margin: 0;
+    line-height: 2em;
+    font-size: 4vw;
+    text-transform: uppercase; 
+   
+
+    text-shadow: 2px 4px 10px black;
+  }
+
   padding-top: 40px;
   h3{
     font-size: 27px;
@@ -68,10 +78,10 @@ button:active{
 form{
   display: flex;
   flex-direction: column;
-  margin: 0 15%;
+  margin: 0 10%;
   @media screen and (min-width: $break-large){
 
-    margin: 0 20%;
+    margin: 0 30%;
   }
 
 }

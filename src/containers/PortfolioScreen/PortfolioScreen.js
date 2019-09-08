@@ -14,14 +14,21 @@ class PortfolioScreen extends Component {
 
 
 
-  async componentWillMount() {
+  async componentDidMount() {
     // Render the projects and fetch the data here via axios
     // Todo: Load Projects here via api call to github or database
 
-    //Fetch data from your api
-    const res = await axios.get('https://hashamalamapi.herokuapp.com/github/repos')
-    const projectsData = res.data; 
-    this.setState({projectsData});
+    let projectsData = [];
+    if (localStorage.getItem('projectsData') !== ""){
+       //Fetch data from your api
+      const res = await axios.get('https://api.github.com/users/hasham7861/repos')
+      projectsData = res.data; 
+      this.setState({projectsData});
+      localStorage.setItem('projectsData',JSON.stringify(projectsData));
+    } 
+    else{
+      projectsData = JSON.parse(localStorage.getItem('projectsData'));
+    }
     
     const projects = [];
     
@@ -64,7 +71,7 @@ class PortfolioScreen extends Component {
 
     return (
       <div className="PortfolioScreen">
-        <h1>My Pinned Github Portfolio</h1>
+         <h1 className="header">My Portfolio</h1>
         <div className="PortfolioContainer">
           <ul>
             {this.state.projects.map((project, index) => (

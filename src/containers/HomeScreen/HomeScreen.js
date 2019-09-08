@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Heading from '../../components/Heading/Heading';
 import Portfolio from '../Portfolio/Portfolio';
 import HomeNavBar from '../../components/HomeNavBar/HomeNavBar';
+import Layers from '../../images/RandomIcons/layers.svg';
 
 class HomeScreen extends Component {
   headingRef = React.createRef();
@@ -14,7 +15,8 @@ class HomeScreen extends Component {
   render() {
     return (
       <div className="Home">
-        <Heading classNames={this.props.headerClassNames} />
+        <img className="HomeIcon" src={Layers} alt="home img"></img>
+        <Heading/>
         <MobileView>
           <div ref={this.contactButtonRef}>
             <HomeNavBar />

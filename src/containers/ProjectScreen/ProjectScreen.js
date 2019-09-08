@@ -42,17 +42,17 @@ class ProjectScreen extends Component {
       <>
         {isMobile ? <ProjectNavbar projectRoute={this.projectName} /> : ''}
         <div className="ProjectScreen">
-          <h1>{this.projectName}</h1>
+          <h1 className="header">{this.projectName}</h1>
           <section className="Description">
             <h3>Description</h3>
             <p>{this.state.projectData.projectDesc}</p>
           </section>
           <section className="Languages">
-            <h3>Languages(s)</h3>
+            <h3>Language</h3>
             <p>{this.state.projectData.languages}</p>
           </section>
           <section className="Contributors">
-            <h3>Contributor(s)</h3>
+            <h3>Author</h3>
             <p>Hasham Alam</p>
           </section>
           <section>

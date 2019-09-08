@@ -5,7 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top-right-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     box-shadow: 0px 3px 30px 2px black;  
     background-color:$sideNavbarColor;
     height:100vh;
@@ -25,10 +26,10 @@
         text-decoration: none;
         text-shadow: 2px 4px 10px black;
         &:hover{
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
+            // border-top-right-radius: 15px;
+            // border-bottom-right-radius: 15px;
             background-color: $backgroundColor;
-            width:70%;
+            clip-path: circle(42.9% at 50% 50%);
         }
 
     }
@@ -44,10 +45,11 @@
         float:left;
     }
     .navlinkSelected{
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
+        // border-top-right-radius: 15px;
+        // border-bottom-right-radius: 15px;
         background-color: $navbarColor;
-        width:70%;        
+        // width:70%;       
+        clip-path: circle(42.9% at 50% 50%);
     }
 
 
@@ -73,8 +75,7 @@
                 border-bottom-left-radius: 15px;
                 background-color: $backgroundColor;
                 width:20%;
-                
-               
+                               
             }
             
         }

@@ -1,13 +1,29 @@
 @import '../../StyleConstants.scss';
 
+.header{
+    margin: 0;
+    line-height: 2em;
+    font-size: 4vw;
+    text-transform: uppercase; 
+   
+
+    text-shadow: 2px 4px 10px black;
+  }
 
 .PortfolioContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    overscroll-behavior: none;
-    overflow: hidden;
+    // display: flex;
+    // flex-wrap: wrap;
+    
+//     display: grid;
+//   grid-template-columns: 200px;
+    // justify-content: center;
+    // overscroll-behavior: none;
+    // overflow: hidden;
+    // color:white;
+    // text-transform: uppercase;
+    // text-align: center;
+    // text-shadow: 2px 4px 10px black;
+   
     .Project{
         margin:10px;
     }

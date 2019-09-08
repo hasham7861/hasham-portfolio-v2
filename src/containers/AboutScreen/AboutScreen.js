@@ -20,6 +20,7 @@ class AboutScreen extends Component {
           <div className="MyFace">
             <img src={MyFace} alt="My Face" />
           </div>
+          <div className="Info">
           <section>
             <h3>Area of Expertise</h3>
             <p>Full Stack Web Developer</p>
@@ -44,7 +45,9 @@ class AboutScreen extends Component {
               View Resume
             </a>
           </section>
+          </div>
         </div>
+        
       </>
     );
   }

@@ -1,8 +1,11 @@
 @import '../../StyleConstants.scss';
 .Home{
-    
-    color:white;
-    height:auto;
+    .HomeIcon{
+        width: 170px;
+    }
+    margin-top:100px;
+    // height:auto;
+    // text-align: center;
 
     @media screen and (min-width: $break-large){
        

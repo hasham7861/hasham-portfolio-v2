@@ -47,7 +47,7 @@ class ContactScreen extends Component {
       <>
         {isMobile ? <PagesNavbar /> : ''}
         <div className="ContactScreen">
-          <h3>Email</h3>
+          <h1 className="header">Email</h1>
           <form onSubmit={this.sendMessage.bind(this)}>
             <input
               onChange={this.props.emailOnChange}
