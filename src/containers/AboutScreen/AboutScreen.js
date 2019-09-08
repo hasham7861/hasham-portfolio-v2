@@ -19,7 +19,9 @@ class AboutScreen extends Component {
         <div className="AboutScreen">
           <div className="MyFace">
             <img src={MyFace} alt="My Face" />
+            <h1>HASHAM ALAM</h1>
           </div>
+         
           <div className="Info">
           <section>
             <h3>Area of Expertise</h3>

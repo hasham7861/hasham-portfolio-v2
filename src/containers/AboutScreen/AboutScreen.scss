@@ -2,8 +2,12 @@
 
 .AboutScreen{
     padding-top:80px;
-    text-align: center;
-    
+    // text-align: center;
+    // position: relative;
+    h1{
+        text-shadow: 2px 4px 10px black;
+        color:#A19898;
+    }
   
     
     .MyFace{
@@ -16,10 +20,10 @@
     }
     
     @media screen and (min-width: $break-large){
-        padding-top:30px;
+        padding-top:150px;
        display: grid;
        grid-template-areas: "img info";
-       align-content: center;
+    //    align-content: center;
         
         .MyFace > img{
             width:400px;
