@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { BrowserView, isBrowser } from 'react-device-detect';
+
 import './App.scss';
 import ContactScreen from './containers/ContactScreen/ContactScreen';
 import HomeScreen from './containers/HomeScreen/HomeScreen';
@@ -15,11 +15,11 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div className={isBrowser ? 'DesktopScreen' : ''}>
-            <BrowserView className="SideBar">
+          <div className='DesktopScreen'>
+            <div className="SideBar">
               <SideNavbar />
-            </BrowserView>
-            <Switch className={isBrowser ? 'Content' : ''}>
+            </div>
+            <Switch className='Content'>
               <Route path="/" exact component={HomeScreen} />
               <Route path="/about" exact component={AboutScreen} />
               <Route path="/contact" exact component={ContactScreen} />

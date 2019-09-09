@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { isMobile } from 'react-device-detect';
+// import { isMobile } from 'react-device-detect';
 import './AboutScreen.scss';
-import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
+// import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
 import MyFace from '../../images/MyFace.jpg';
 import JSIcon from '../../images/SkillsSetIcons/JSIcon.svg';
 import ReactIcon from '../../images/SkillsSetIcons/ReactIcon.svg';
@@ -15,7 +15,7 @@ class AboutScreen extends Component {
   render() {
     return (
       <>
-        {isMobile ? <PagesNavbar /> : ''}
+        {/* {isMobile ? <PagesNavbar /> : ''} */}
         <div className="AboutScreen">
           <div className="MyFace">
             <img src={MyFace} alt="My Face" />
@@ -25,14 +25,14 @@ class AboutScreen extends Component {
           <div className="Info">
           <section>
             <h3>Area of Expertise</h3>
-            <p>Full Stack Web Developer</p>
+            <p>Full Stack Developer</p>
           </section>
           <section>
             <h3>What I have to Offer</h3>
-            <p>Design and Create Full Web Apps for your buisness</p>
+            <p>Design and create Web and Mobile Apps for your buisness</p>
           </section>
           <section>
-            <h3>My Skills</h3>
+            <h3>Few of my Skills</h3>
             <div className="SkillsIconBar">
               <img src={JSIcon} alt="JavaScript Icon" />
               <img src={ReactIcon} alt="React Icon" />

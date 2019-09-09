@@ -4,11 +4,14 @@
   .header{
     margin: 0;
     line-height: 2em;
-    font-size: 4vw;
+    font-size: 7vw;
     text-transform: uppercase; 
-   
-
     text-shadow: 2px 4px 10px black;
+
+    @media screen and (min-width: $break-large){
+        
+        font-size: 4vw;
+    }
   }
 
   padding-top: 40px;

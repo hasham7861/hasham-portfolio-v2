@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ContactScreen.scss';
-import { isMobile } from 'react-device-detect';
+// import { isMobile } from 'react-device-detect';
 import axios from 'axios';
 import {
   saveEmail,
@@ -9,7 +9,7 @@ import {
   saveMessage,
   clearEmailForm,
 } from '../../store/actions/actions';
-import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
+// import PagesNavbar from '../../components/PagesNavbar/PagesNavbar';
 import GithubIcon from '../../images/SocialMediaIcons/GithubIcon.svg';
 import LinkedinIcon from '../../images/SocialMediaIcons/LinkedinIcon.svg';
 
@@ -45,7 +45,7 @@ class ContactScreen extends Component {
   render() {
     return (
       <>
-        {isMobile ? <PagesNavbar /> : ''}
+        {/* {isMobile ? <PagesNavbar /> : ''} */}
         <div className="ContactScreen">
           <h1 className="header">Email</h1>
           <form onSubmit={this.sendMessage.bind(this)}>
