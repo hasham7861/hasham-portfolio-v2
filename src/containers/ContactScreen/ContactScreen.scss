@@ -8,13 +8,13 @@
     text-transform: uppercase; 
     text-shadow: 2px 4px 10px black;
 
+    padding-top:90px;
     @media screen and (min-width: $break-large){
-        
         font-size: 4vw;
+        padding-top: 40px;
     }
   }
 
-  padding-top: 40px;
   h3{
     font-size: 27px;
   }
@@ -83,10 +83,8 @@ form{
   flex-direction: column;
   margin: 0 10%;
   @media screen and (min-width: $break-large){
-
     margin: 0 30%;
   }
-
 }
 
 a:hover{
