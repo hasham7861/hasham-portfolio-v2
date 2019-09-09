@@ -7,7 +7,6 @@ import './PortfolioScreen.scss';
 
 class PortfolioScreen extends Component {
   state = {
-    // Hardcoded Project Names
     projects: [],
     projectsData: []
   };
@@ -16,8 +15,6 @@ class PortfolioScreen extends Component {
 
   async componentDidMount() {
     // Render the projects and fetch the data here via axios
-    // Todo: Load Projects here via api call to github or database
-
     let projectsData = [];
     if (localStorage.getItem('projectsData') !== ""){
        //Fetch data from your api

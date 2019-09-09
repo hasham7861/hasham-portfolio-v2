@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { isMobile } from 'react-device-detect';
-import ProjectNavbar from '../../components/ProjectNavbar/ProjectNavbar';
 import './ProjectScreen.scss';
-// import { connect } from 'react-redux';
 
 class ProjectScreen extends Component {
 
@@ -19,7 +16,7 @@ class ProjectScreen extends Component {
 
   componentDidMount(){
     const data = JSON.parse(localStorage.getItem('projectData'));
-    // console.log(data);
+
     this.setState(
       {
         projectData:{
@@ -33,14 +30,11 @@ class ProjectScreen extends Component {
     
       )
   }
-  
 
-  // fetch the data from redux and put it in here
   render() {
    
     return (
       <>
-        {isMobile ? <ProjectNavbar projectRoute={this.projectName} /> : ''}
         <div className="ProjectScreen">
           <h1 className="header">{this.projectName}</h1>
           <section className="Description">

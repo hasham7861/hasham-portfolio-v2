@@ -2,34 +2,26 @@
 
 .AboutScreen{
     padding-top:120px;
-    // text-align: center;
-    // position: relative;
     h1{
         text-shadow: 2px 4px 10px black;
         color:#A19898; 
     }
-  
-    
     .MyFace{
         img{
             width:150px;
             border: 5px solid $navbarColor;
             border-radius: 100%;
-           
         }
     }
     
     @media screen and (min-width: $break-large){
         padding-top:150px;
        display: grid;
-       grid-template-areas: "img info";
-    //    align-content: center;
-        
+       grid-template-areas: "img info"; 
         .MyFace > img{
             width:400px;
             grid-area: img;
         }
-
         .Info{
             flex-grow: 1;
             display: flex;
@@ -38,14 +30,12 @@
         }
     }
   
-    section{
-        
+    section{ 
         background-color: $navbarColor;
         margin: 5px 30px;
         padding: 10px 20px;
-        border-radius: 15px;
+        border-radius: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-       
         h3{
             text-align: left;
             color: $backgroundColor;
@@ -53,17 +43,14 @@
                 content: ":";
             }
         }
-
         p{
             font-size:0.9em;
             text-align: left;
         }
-
         a{
             text-decoration: none;
             color:$backgroundColor;
         }
-
         .SkillsIconBar{                      
             img{
                 border-radius: 100%;
@@ -74,7 +61,6 @@
         }
 
         @media screen and (min-width: $break-large){
-    
             margin:5px 10%;
             h3{
                 font-size:1.2em;
