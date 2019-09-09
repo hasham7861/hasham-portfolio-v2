@@ -3,11 +3,6 @@ import {
 	SAVE_SUBJECT,
 	SAVE_MESSAGE,
 	CLEAR_EMAIL_FORM,
-	CHANGE_PORTFOLIO_STATE,
-	CHANGE_HEADING_SIZE,
-	CLOSE_PORTFOLIO,
-	EXPAND_PORTFOLIO_DIV,
-	RESET_HEADING_SIZE,
 }	from '../constants/actionTypes';
 
 // The following actions are possible on emailMessage
@@ -26,25 +21,3 @@ export const saveMessage = message => ({
 export const clearEmailForm = () =>({
 	type: CLEAR_EMAIL_FORM,
 });
-export const changePortfolioState = portfolioState => ({
-	type: CHANGE_PORTFOLIO_STATE,
-	portfolioState
-});
-
-export const changeHeadingSize = headingState => ({
-	type: CHANGE_HEADING_SIZE,
-	headingState
-});
-
-export const closePortfolio = () => ({
-	type: CLOSE_PORTFOLIO,
-});
-
-export const expandPortfolioDiv = (portfolioState) => ({
-	type: EXPAND_PORTFOLIO_DIV,
-	portfolioState
-})
-
-export const resetHeadingSize = () => ({
-	type: RESET_HEADING_SIZE
-})
