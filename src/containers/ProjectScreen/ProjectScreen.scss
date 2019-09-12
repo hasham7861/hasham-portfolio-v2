@@ -6,6 +6,11 @@
     padding-top: 60px;
     h1{
         text-transform: uppercase;
+        overflow-wrap: break-word;
+        font-size:1.2em;
+        @media screen and (min-width: $break-large){
+            font-size:4vw;
+        }
     }
    
     section{
@@ -29,6 +34,7 @@
         p{
             font-size:0.9em;
             text-align: left;
+        
         }
 
         a{

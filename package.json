@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "concurrently \"npm build\" \"firebase deploy\""
+    "deploy": "concurrently \"npm run build\" \"firebase deploy\""
   },
   "browserslist": [
     ">0.2%",
