@@ -11,17 +11,27 @@
         padding-top:40px;
         font-size: 4vw;
     }
+ 
   }
 
 .PortfolioContainer{
     .Project{
         margin:10px;
+       
     }
     a{
        text-decoration: none;
     }
     li{
         display: inline-block;
+    }
+
+    @media screen and (min-width: $break-large){
+       
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 100px;
+
     }
 
 }

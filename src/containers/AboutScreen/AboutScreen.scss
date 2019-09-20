@@ -13,6 +13,8 @@
             border-radius: 100%;
         }
     }
+
+   
     
     @media screen and (min-width: $break-large){
         padding-top:150px;
@@ -42,6 +44,8 @@
             &:after{
                 content: ":";
             }
+            font-weight: bold;
+            
         }
         p{
             font-size:0.9em;
