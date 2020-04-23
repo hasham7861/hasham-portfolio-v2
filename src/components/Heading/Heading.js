@@ -5,7 +5,7 @@ const Heading = props => (
   <div ref={props.reference} className="heading">
     <h1>Hasham</h1>
     <h1>Alam</h1>
-    <h3>&lt; Aspiring Web Developer /&gt;</h3>
+    <h3>Software Engineer</h3>
   </div>
 );
 
