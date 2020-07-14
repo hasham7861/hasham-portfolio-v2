@@ -1,47 +1,43 @@
-@import '../../StyleConstants.scss';
+@import "../../StyleConstants.scss";
 
-.ProjectScreen{
-    
-    height: fit-content;
-    padding-top: 60px;
-    h1{
-        text-transform: uppercase;
-        overflow-wrap: break-word;
-        font-size:1.2em;
-        @media screen and (min-width: $break-large){
-            font-size:4vw;
-        }
+.ProjectScreen {
+  height: fit-content;
+  padding-top: 60px;
+  h1 {
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    font-size: 1.2em;
+    @media screen and (min-width: $break-large) {
+      font-size: 4vw;
     }
-   
-    section{
-        background-color: $navbarColor;
-        margin: 10px 30px;
-        padding: 10px 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-        @media screen and (min-width: $break-large){
-            margin: 10px 20%;
-        }
-        h3{
-            text-align: left;
-            color: $backgroundColor;
-            &:after{
-                content: ":";
-            }
-        }
+  section {
+    background-color: #003366;
+    margin: 10px 30px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-        p{
-            font-size:0.9em;
-            text-align: left;
-        
-        }
-
-        a{
-            text-decoration: none;
-            color:$backgroundColor;
-        }
+    @media screen and (min-width: $break-large) {
+      margin: 10px 20%;
     }
-    
+    h3 {
+      text-align: left;
+      color: #62d39c;
+      &:after {
+        content: ":";
+      }
+    }
+
+    p {
+      font-size: 0.9em;
+      text-align: left;
+    }
+
+    a {
+      text-decoration: none;
+      color: #62d39c;
+    }
+  }
 }
-

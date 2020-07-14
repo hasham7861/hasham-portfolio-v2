@@ -6,6 +6,9 @@
     text-shadow: 1px 1px 1px black;
     color: #62d39c;
   }
+  .Info h3 {
+    color: #62d39c;
+  }
   .MyFace {
     img {
       width: 150px;
@@ -31,7 +34,7 @@
   }
 
   section {
-    background-color: #62d39c;
+    background-color: #003366;
     margin: 5px 30px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -55,7 +58,7 @@
     .SkillsIconBar {
       img {
         border-radius: 100%;
-        border: 1px solid white;
+        border: 1px solid #62d39c;
         margin: 5px;
       }
     }
