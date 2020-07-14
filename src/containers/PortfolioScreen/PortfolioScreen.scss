@@ -1,37 +1,45 @@
-@import '../../StyleConstants.scss';
+@import "../../StyleConstants.scss";
 
-.header{
-    margin: 0;
-    padding-top:100px;
-    line-height: 2em;
-    font-size: 7vw;
-    text-transform: uppercase; 
-    text-shadow: 2px 4px 10px black;
-    @media screen and (min-width: $break-large){
-        padding-top:40px;
-        font-size: 4vw;
-    }
- 
+.header {
+  margin: 0;
+  padding-top: 100px;
+  line-height: 2em;
+  font-size: 7vw;
+  text-transform: uppercase;
+  text-shadow: 2px 4px 10px black;
+  @media screen and (min-width: $break-large) {
+    padding-top: 40px;
+    font-size: 4vw;
+  }
+}
+
+.PortfolioContainer {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
   }
 
-.PortfolioContainer{
-    .Project{
-        margin:10px;
-       
-    }
-    a{
-       text-decoration: none;
-    }
-    li{
-        display: inline-block;
-    }
+  .Project {
+    margin: 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    display: inline-block;
+  }
 
-    @media screen and (min-width: $break-large){
-       
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 100px;
-
+  @media screen and (min-width: $break-small) {
+    margin: 0 100px;
+    ul {
+      grid-template-columns: repeat(2, 1fr);
     }
-
+  }
+  @media screen and (min-width: $break-large) {
+    margin: 0 100px;
+    ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }

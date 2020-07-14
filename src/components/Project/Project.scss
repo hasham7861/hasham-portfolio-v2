@@ -1,57 +1,56 @@
-@import '../../StyleConstants.scss';
+@import "../../StyleConstants.scss";
 
 .Project {
-    background-color:#4E3535;
-    height: 100px;
-    border-radius: 10px;
-    padding: 70px 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    @media screen and (max-width: $break-large){
-       
-        padding: 70px 11px;
-      
-    }
-    img{
-        width:50px;
+  background-color: #4e3535;
+  height: 150px;
+  border-radius: 10px;
+  padding: 70px 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  @media screen and (max-width: $break-large) {
+    padding: 70px 11px;
+  }
+  img {
+    width: 50px;
+  }
+
+  h4 {
+    font-weight: bold;
+    text-shadow: 2px 4px 10px black;
+  }
+
+  &:hover {
+    background-color: grey;
+  }
+  &:active {
+    @keyframes ButtonPress {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(0, 3px, 0);
+      }
     }
 
-    h4{
-        font-weight: bold;
-        text-shadow: 2px 4px 10px black;
-    }
-
-    &:hover{
-        background-color:grey;
-    }
-    &:active{
-        @keyframes ButtonPress {
-            from { transform: translate3d(0, 0, 0); }
-            to   { transform: translate3d(0, 3px, 0); }
-          }
-          
-    
-        animation: ButtonPress 0.5s;
-        box-shadow: 5px 5px $navbarColor;
-        background-color:rgb(105, 56, 56);
-          
-    }
-    p{
-        line-height: 20px;
-        font-size:13px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 200px;
-    }
-   
+    animation: ButtonPress 0.5s;
+    box-shadow: 5px 5px $navbarColor;
+    background-color: rgb(105, 56, 56);
+  }
+  p {
+    line-height: 20px;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: wrap;
+    // text-overflow: ellipsis;
+    // width: 200px;
+  }
 }
-ul{
-    list-style: none;
-    padding: 0;
-}
-
-li{
-    margin-bottom: 10px;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-
+li {
+  margin-bottom: 10px;
+  height: fit-content;
+}

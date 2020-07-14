@@ -7,7 +7,7 @@ import ReduxIcon from '../../images/SkillsSetIcons/ReduxIcon.svg';
 import MySqlIcon from '../../images/SkillsSetIcons/MySqlIcon.svg';
 import NodeIcon from '../../images/SkillsSetIcons/NodeIcon.svg';
 import AdobeXDIcon from '../../images/SkillsSetIcons/AdobeXDIcon.svg';
-import MyResumePdf from '../../documents/Hasham_Alam_Resume.pdf';
+// import MyResumePdf from '../../documents/Hasham_Alam_Resume.pdf';
 
 class AboutScreen extends Component {
   render() {
@@ -26,10 +26,10 @@ class AboutScreen extends Component {
           </section>
           <section>
             <h3>What I have to Offer</h3>
-            <p>Can create scalable web apps for your for your buisness</p>
+            <p>Can create scalable app(s) for your for your business</p>
           </section>
           <section>
-            <h3>Few of my Skills</h3>
+            <h3>Skills</h3>
             <div className="SkillsIconBar">
               <img src={JSIcon} alt="JavaScript Icon" />
               <img src={ReactIcon} alt="React Icon" />
@@ -38,11 +38,6 @@ class AboutScreen extends Component {
               <img src={NodeIcon} alt="Node Icon" />
               <img src={AdobeXDIcon} alt="AdobeXd Icon" />
             </div>
-          </section>
-          <section>
-            <a href={MyResumePdf} target="_blank" rel="noopener noreferrer">
-              View Resume
-            </a>
           </section>
           </div>
         </div>
