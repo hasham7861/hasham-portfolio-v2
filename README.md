@@ -8,7 +8,7 @@
 #### Technology:
 
 1. Front-end - React, Sass, AdobeXd, and Photoshop
-2. Back-end - Node, Express, Firebase, and Heroku
+2. Back-end - Node, Express, AWS
 
 #### Want to use my web app?
 
