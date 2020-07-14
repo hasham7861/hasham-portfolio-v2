@@ -1,81 +1,76 @@
-@import '../../StyleConstants.scss';
+@import "../../StyleConstants.scss";
 
-.AboutScreen{
-    padding-top:120px;
-    h1{
-        text-shadow: 2px 4px 10px black;
-        color:#A19898; 
+.AboutScreen {
+  padding-top: 120px;
+  h1 {
+    text-shadow: 1px 1px 1px black;
+    color: #62d39c;
+  }
+  .MyFace {
+    img {
+      width: 150px;
+      border: 5px solid #62d39c;
+      border-radius: 100%;
     }
-    .MyFace{
-        img{
-            width:150px;
-            border: 5px solid $navbarColor;
-            border-radius: 100%;
-        }
+  }
+
+  @media screen and (min-width: $break-large) {
+    padding-top: 150px;
+    display: grid;
+    grid-template-areas: "img info";
+    .MyFace > img {
+      width: 400px;
+      grid-area: img;
+    }
+    .Info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      grid-area: info;
+    }
+  }
+
+  section {
+    background-color: #62d39c;
+    margin: 5px 30px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    h3 {
+      text-align: left;
+      color: $backgroundColor;
+      &:after {
+        content: ":";
+      }
+      font-weight: bold;
+    }
+    p {
+      font-size: 0.9em;
+      text-align: left;
+    }
+    a {
+      text-decoration: none;
+      color: $backgroundColor;
+    }
+    .SkillsIconBar {
+      img {
+        border-radius: 100%;
+        border: 1px solid white;
+        margin: 5px;
+      }
     }
 
-   
-    
-    @media screen and (min-width: $break-large){
-        padding-top:150px;
-       display: grid;
-       grid-template-areas: "img info"; 
-        .MyFace > img{
-            width:400px;
-            grid-area: img;
-        }
-        .Info{
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            grid-area: info;
-        }
+    @media screen and (min-width: $break-large) {
+      margin: 5px 10%;
+      h3 {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+      img {
+        width: 50px;
+      }
     }
-  
-    section{ 
-        background-color: $navbarColor;
-        margin: 5px 30px;
-        padding: 10px 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        h3{
-            text-align: left;
-            color: $backgroundColor;
-            &:after{
-                content: ":";
-            }
-            font-weight: bold;
-            
-        }
-        p{
-            font-size:0.9em;
-            text-align: left;
-        }
-        a{
-            text-decoration: none;
-            color:$backgroundColor;
-        }
-        .SkillsIconBar{                      
-            img{
-                border-radius: 100%;
-                border: 1px solid $backgroundColor;
-                margin:5px;
-
-            }
-        }
-
-        @media screen and (min-width: $break-large){
-            margin:5px 10%;
-            h3{
-                font-size:1.2em;
-            }
-            p{
-                font-size:0.9em; 
-            }
-            img{
-                width:50px;
-            }
-        }
-    }  
+  }
 }
-

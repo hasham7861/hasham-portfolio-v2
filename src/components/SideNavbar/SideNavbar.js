@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './SideNavbar.scss';
 import HomeIcon from '../../images/HomeIcon.svg';
 import AboutIcon from '../../images/AboutIcon.svg';
-import ContactIcon from '../../images/ContactIcon.svg';
 import PortfolioIcon from '../../images/PortfolioIcon.svg';
+
 
 const SideNavbar = () => (
   <div className="SideNavbar">
@@ -19,9 +19,6 @@ const SideNavbar = () => (
     <NavLink to="/portfolio" activeClassName="navlinkSelected" exact>
       <img src={PortfolioIcon} alt="Portfolio Icon" />
       <p>Portfolio</p>
-    </NavLink>
-    <NavLink to="/contact" activeClassName="navlinkSelected" exact>
-      <img src={ContactIcon} alt="Contact Icon" /> <p>Contact</p>
     </NavLink>
   </div>
 );

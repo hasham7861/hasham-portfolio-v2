@@ -3,10 +3,11 @@
 .header {
   margin: 0;
   padding-top: 100px;
+  color: #62d39c;
   line-height: 2em;
   font-size: 7vw;
   text-transform: uppercase;
-  text-shadow: 2px 4px 10px black;
+  text-shadow: 1px 1px 5px black;
   @media screen and (min-width: $break-large) {
     padding-top: 40px;
     font-size: 4vw;

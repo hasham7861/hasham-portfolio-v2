@@ -1,66 +1,55 @@
-@import './StyleConstants.scss';
-.App{
-  background-color: $backgroundColor;
-  font-family: 'Montserrat', sans-serif;
-  color:white;
+@import "./StyleConstants.scss";
+.App {
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  color: white;
   text-align: center;
   user-select: none;
 }
 
-
-h3,h4,h5{
+h3,
+h4,
+h5 {
   font-weight: lighter;
 }
 
-a{
-  color:white;
+a {
+  color: white;
 }
-
-
-
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
-
-
-.DesktopScreen{
+.DesktopScreen {
   display: grid;
-  grid-template-areas:"sidebar content";
+  grid-template-areas: "sidebar content";
   grid-auto-columns: 15% 85%;
-  // background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed; 
-  // background-size: cover;      
+  // background: url('./images/HomeBackground.jpg') no-repeat center bottom fixed;
+  // background-size: cover;
 
-  
-  .Sidebar{
-      grid-area: sidebar;  
-      
+  .Sidebar {
+    grid-area: sidebar;
   }
-  .Content{      
-      
-      grid-area: content;
-  
-      display: flex;     
-     
-      justify-content: center;
-     
-     
-      align-items: center;  
-      overflow:hidden;     
-             
+  .Content {
+    grid-area: content;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+    overflow: hidden;
   }
 }
 
-
-@media screen and (max-width: $break-large){
-  .DesktopScreen{
+@media screen and (max-width: $break-large) {
+  .DesktopScreen {
     display: block;
-    height:100vh; 
-    background:none;  
+    height: 100vh;
+    background: none;
   }
-  
 }
