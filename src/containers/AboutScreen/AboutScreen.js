@@ -26,7 +26,7 @@ class AboutScreen extends Component {
           </section>
           <section>
             <h3>What I have to Offer</h3>
-            <p>Can create scalable app(s) for your for your business</p>
+            <p>Will create scalable web & mobile apps for your business</p>
           </section>
           <section>
             <h3>Skills</h3>
