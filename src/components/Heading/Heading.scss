@@ -1,0 +1,30 @@
+@import "../../StyleConstants.scss";
+.heading {
+  color: #003366;
+  text-transform: uppercase;
+  text-align: center;
+  h1 {
+    margin: 0;
+    line-height: 1.2em;
+    font-size: 15vw;
+  }
+
+  h3 {
+    font-size: 5vw;
+    color: rgb(98, 211, 156);
+  }
+  .contactBar img {
+    width: 3.5rem;
+    margin: 0.5rem;
+  }
+}
+
+@media screen and (min-width: $break-large) {
+  .heading h1 {
+    font-size: 5em;
+    line-height: 1em;
+  }
+  .heading h3 {
+    font-size: 2vw;
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../StyleConstants.scss';
+.Home{
+    .HomeIcon{
+        width:20vw;
+    }
+    .MyFace {
+        img {
+          width: 200px;
+          border: 5px solid #62d39c;
+          border-radius: 100%;
+        }
+      }
+    padding-top:200px;
+    @media screen and (min-width: $break-large){
+        padding-top:100px;
+        .HomeIcon{
+            width: 170px;
+        }
+
+        .MyFace {
+            img {
+              width: 300px;
+              border: 5px solid #62d39c;
+              border-radius: 100%;
+            }
+          }
+    }
+}
+

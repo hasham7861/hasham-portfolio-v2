@@ -1,22 +1,38 @@
 {
-  "name": "portfolio-host-server",
-  "version": "1.0.0",
-  "description": "server that is used to server the client",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hasham7861/PorfolioGenerator.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hasham7861/PorfolioGenerator/issues"
-  },
-  "homepage": "https://github.com/hasham7861/PorfolioGenerator#readme",
+  "name": "client",
+  "version": "0.0.1",
+  "private": true,
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.18.1",
+    "braces": "^2.3.2",
+    "concurrently": "^4.1.2",
+    "feather-icons": "^4.28.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.9.0",
+    "react-device-detect": "^1.7.5",
+    "react-dom": "^16.9.0",
+    "react-feather": "^2.0.9",
+    "react-redux": "^7.1.1",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.1.1",
+    "redux": "^4.0.4",
+    "styled-components": "^5.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "concurrently \"npm run build\" \"firebase deploy\""
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }
